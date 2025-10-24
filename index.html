@@ -109,22 +109,22 @@
         >
           Tous
         </button>
-        <button class="btn btn-outline-primary filter-btn" data-filter="react">
-          React
+        <button class="btn btn-outline-primary filter-btn" data-filter="html">
+          HTML
         </button>
-        <button
-          class="btn btn-outline-primary filter-btn"
-          data-filter="vanilla"
-        >
-          Vanilla JS
+        <button class="btn btn-outline-primary filter-btn" data-filter="css">
+          CSS
         </button>
-        <button class="btn btn-outline-primary filter-btn" data-filter="node">
-          Node.js
+        <button class="btn btn-outline-primary filter-btn" data-filter="php">
+          PHP
+        </button>
+        <button class="btn btn-outline-primary filter-btn" data-filter="sql">
+          SQL
         </button>
       </div>
 
       <div class="row g-4" id="projects-grid">
-        <div class="col-md-6 col-lg-4 project-item" data-tech="react">
+        <div class="col-md-6 col-lg-4 project-item" data-tech="html css">
           <div class="card project-card h-100" data-project-id="1">
             <div class="card-body">
               <h5 class="card-title text-primary">Projet Voyages</h5>
@@ -132,12 +132,15 @@
                 Interface utilisateur complète pour un outil d'analyse de
                 données en temps réel.
               </p>
-              <span class="badge bg-info">React</span>
-              <span class="badge bg-secondary">Bootstrap</span>
+              <span class="badge bg-danger">HTML</span>
+              <span class="badge bg-success">CSS</span>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 project-item" data-tech="vanilla">
+        <div
+          class="col-md-6 col-lg-4 project-item"
+          data-tech="html css php sql"
+        >
           <div class="card project-card h-100" data-project-id="2">
             <div class="card-body">
               <h5 class="card-title text-primary">Projet module-connexion</h5>
@@ -145,12 +148,17 @@
                 Application simple et rapide utilisant uniquement Vanilla JS
                 pour les calculs financiers complexes.
               </p>
-              <span class="badge bg-warning text-dark">Vanilla JS</span>
-              <span class="badge bg-secondary">CSS3</span>
+              <span class="badge bg-danger">HTML</span>
+              <span class="badge bg-success">CSS</span>
+              <span class="badge bg-primary">PHP</span>
+              <span class="badge bg-secondary">SQL</span>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 project-item" data-tech="node">
+        <div
+          class="col-md-6 col-lg-4 project-item"
+          data-tech="html css php sql"
+        >
           <div class="card project-card h-100" data-project-id="3">
             <div class="card-body">
               <h5 class="card-title text-primary">Projet livre-or</h5>
@@ -158,12 +166,17 @@
                 Conception et implémentation d'une API RESTful sécurisée avec
                 Node, Express et MongoDB.
               </p>
-              <span class="badge bg-success">Node.js</span>
-              <span class="badge bg-success">MongoDB</span>
+              <span class="badge bg-danger">HTML</span>
+              <span class="badge bg-success">CSS</span>
+              <span class="badge bg-primary">PHP</span>
+              <span class="badge bg-secondary">SQL</span>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 project-item" data-tech="node">
+        <div
+          class="col-md-6 col-lg-4 project-item"
+          data-tech="html css php sql"
+        >
           <div class="card project-card h-100" data-project-id="4">
             <div class="card-body">
               <h5 class="card-title text-primary">Projet mediatheque</h5>
@@ -171,12 +184,17 @@
                 Conception et implémentation d'une API RESTful sécurisée avec
                 Node, Express et MongoDB.
               </p>
-              <span class="badge bg-success">Node.js</span>
-              <span class="badge bg-success">MongoDB</span>
+              <span class="badge bg-danger">HTML</span>
+              <span class="badge bg-success">CSS</span>
+              <span class="badge bg-primary">PHP</span>
+              <span class="badge bg-secondary">SQL</span>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 project-item" data-tech="node">
+        <div
+          class="col-md-6 col-lg-4 project-item"
+          data-tech="html css php sql"
+        >
           <div class="card project-card h-100" data-project-id="5">
             <div class="card-body">
               <h5 class="card-title text-primary">Projet memory</h5>
@@ -184,8 +202,10 @@
                 Conception et implémentation d'une API RESTful sécurisée avec
                 Node, Express et MongoDB.
               </p>
-              <span class="badge bg-success">Node.js</span>
-              <span class="badge bg-success">MongoDB</span>
+              <span class="badge bg-danger">HTML</span>
+              <span class="badge bg-success">CSS</span>
+              <span class="badge bg-primary">PHP</span>
+              <span class="badge bg-secondary">SQL</span>
             </div>
           </div>
         </div>
@@ -246,7 +266,6 @@
               <strong>Technologies :</strong>
               <span id="modal-project-tech"></span>
             </p>
-            <p><strong>Rôle :</strong> <span id="modal-project-role"></span></p>
           </div>
           <div class="modal-footer">
             <a
