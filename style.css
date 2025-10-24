@@ -31,3 +31,22 @@ body {
 nav a.link-info:hover {
   font-weight: bold;
 }
+
+.text-justify {
+  text-align: justify !important;
+}
+
+/* --- 1. Style pour mobile (par défaut) : texte centré --- */
+.about-text {
+  /* Le texte est aligné au centre par défaut sur tous les écrans (y compris mobile) */
+  text-align: center;
+}
+
+/* --- 2. Media Query pour écrans de bureau (Desktop, 'lg' et au-dessus) --- */
+/* Le breakpoint 'lg' de Bootstrap est à 992px */
+@media (min-width: 992px) {
+  .about-text {
+    /* Applique la justification uniquement à partir de 992px de large */
+    text-align: justify;
+  }
+}
