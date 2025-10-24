@@ -27,3 +27,8 @@ body {
 .filter-btn {
   margin: 5px;
 }
+
+nav a:hover {
+  font-weight: bold;
+  color: rgb(197, 14, 54);
+}
