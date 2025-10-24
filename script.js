@@ -45,7 +45,7 @@ const projectsData = [
     title: "Projet memory",
     longDesc:
       "Construction d'un service d'API évolutif pour une application mobile. Le travail comprenait la modélisation des données, l'authentification JWT et l'optimisation des index MongoDB pour les recherches rapides.",
-    tech: "HTML5, CSS3, PHP, SQL, PHP POO",
+    tech: "HTML5, CSS3, SQL, PHP POO",
     demoLink:
       "https://mohamed-amine-namasse.students-laplateforme.io/memory/index.php",
     codeLink: "https://github.com/mohamed-amine-namasse/memory",
