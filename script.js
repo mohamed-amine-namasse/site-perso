@@ -52,69 +52,101 @@ const projectsData = [
   },
 ];
 
-/**
- * 1. Logique de Filtrage des Projets
- *
- */
-
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Sélection des éléments
+  // --------------------------------------
+  // 1. Logique du Modal (détails du projet) - Non liée à l'animation
+  // --------------------------------------
+  const projectModal = document.getElementById("projectModal");
+  const modalTitle = document.getElementById("modal-project-title");
+  const modalLongDesc = document.getElementById("modal-project-long-desc");
+  const modalTech = document.getElementById("modal-project-tech");
+  const modalLink = document.getElementById("modal-project-link");
+  const modalCodeLink = document.getElementById("modal-code-link");
+
+  document.querySelectorAll(".project-card").forEach((card) => {
+    card.addEventListener("click", function () {
+      const projectId = this.dataset.projectId;
+      const project = projectsData.find((p) => p.id === projectId);
+
+      if (project) {
+        modalTitle.textContent = project.title;
+        modalLongDesc.textContent = project.longDesc;
+        modalTech.textContent = project.tech;
+        modalLink.href = project.demoLink;
+        modalCodeLink.href = project.codeLink;
+
+        const modal = new bootstrap.Modal(projectModal);
+        modal.show();
+      }
+    });
+  });
+
+  // --------------------------------------
+  // 2. Logique du Filtre de Projets - Non liée à l'animation
+  // --------------------------------------
   const filterButtons = document.querySelectorAll(".filter-btn");
   const projectItems = document.querySelectorAll(".project-item");
-  const projectsGrid = document.getElementById("projects-grid");
 
-  // 2. Événement de clic sur les boutons de filtre
   filterButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      // Désactiver le bouton 'actif' précédent et activer le nouveau
-      document.querySelector(".filter-btn.active").classList.remove("active");
-      button.classList.add("active");
+    button.addEventListener("click", function () {
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      this.classList.add("active");
 
-      const filterValue = button.getAttribute("data-filter");
+      const filter = this.dataset.filter;
 
-      // 3. Logique de filtrage par technologie
       projectItems.forEach((item) => {
-        const itemTechs = item.getAttribute("data-tech"); // Récupère la chaîne "html css php sql"
+        const techs = item.dataset.tech.split(" ");
 
-        if (filterValue === "all") {
-          // Si 'Tous' est sélectionné, on affiche tous les projets
+        if (filter === "all" || techs.includes(filter)) {
           item.style.display = "block";
+          // Lorsque le filtre est appliqué, on réanime l'élément
+          item.classList.remove("visible");
+          setTimeout(() => item.classList.add("visible"), 50);
         } else {
-          // **LOGIQUE CLÉ** : Vérifie si la chaîne de technologies contient la valeur du filtre
-          if (itemTechs && itemTechs.includes(filterValue)) {
-            item.style.display = "block"; // Affiche le projet
-          } else {
-            item.style.display = "none"; // Masque le projet
-          }
+          item.style.display = "none";
         }
       });
     });
   });
-});
 
-/*
- * 2. Logique d'Affichage de la Modale (Interaction JS + Composant Bootstrap)
- * C'est la partie "cool" où l'utilisateur clique sur une carte de projet.
- */
-document.querySelectorAll(".project-card").forEach((card) => {
-  card.addEventListener("click", function () {
-    const projectId = parseInt(this.getAttribute("data-project-id"));
-    const project = projectsData.find((p) => p.id === projectId);
+  // --------------------------------------
+  // 3. Logique de l'Animation (Intersection Observer)
+  // C'est la partie que vous recherchez !
+  // --------------------------------------
 
-    if (project) {
-      // Mettre à jour le contenu de la Modale
-      document.getElementById("modal-project-title").textContent =
-        project.title;
-      document.getElementById("modal-project-long-desc").textContent =
-        project.longDesc;
-      document.getElementById("modal-project-tech").textContent = project.tech;
-      document.getElementById("modal-project-link").href = project.demoLink;
-      document.getElementById("modal-code-link").href = project.codeLink;
-      // Afficher la Modale Bootstrap
-      const projectModal = new bootstrap.Modal(
-        document.getElementById("projectModal")
-      );
-      projectModal.show();
+  /**
+   * Crée un nouvel Intersection Observer pour gérer l'animation "fade-in".
+   * L'observateur exécute un callback chaque fois qu'un élément observé
+   * croise la zone de seuil (viewport).
+   */
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      // 'entries' est un tableau de tous les éléments observés qui ont changé d'état
+      entries.forEach((entry) => {
+        // Si l'élément est dans le viewport (visible)
+        if (entry.isIntersecting) {
+          // Ajoute la classe 'visible' qui est définie dans le CSS
+          // et qui contient les styles d'opacité: 1 et transform: translateY(0).
+          entry.target.classList.add("visible");
+
+          // On arrête d'observer l'élément pour que l'animation ne se
+          // redéclenche pas à chaque défilement.
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      // Configuration: le 'threshold' est la quantité de l'élément (en pourcentage)
+      // qui doit être visible pour que le callback se déclenche.
+      // Ici, 10% de l'élément doit être visible (0.1)
+      threshold: 0.1,
     }
+  );
+
+  // Cible tous les éléments HTML ayant la classe 'fade-in'
+  // (que nous avons ajoutée aux sections dans le fichier index.html)
+  document.querySelectorAll(".fade-in").forEach((element) => {
+    // Démarre l'observation pour chaque élément trouvé
+    observer.observe(element);
   });
 });

@@ -1,51 +1,162 @@
 body {
-  background-color: #f8f9fa;
+  background-color: #f8f9fa; /* Couleur de fond légère */
 }
+
+/* Style spécifique pour le titre dans la barre de navigation */
 #title {
   font-family: "Dancing Script", cursive;
-  font-size: 28px;
+  font-size: 1.8rem;
+  color: #dc3545 !important; /* Rouge Bootstrap */
 }
+
+/* Titres de section */
+.section-title {
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+  color: #333;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* ------------------------------------- */
+/* --- 2. SECTION HERO --- */
+/* ------------------------------------- */
+
 .hero-section {
   background: linear-gradient(45deg, red, blue);
   color: white;
   padding: 80px 0;
   text-align: center;
 }
+
 .hero-section h1 {
-  font-weight: 700;
+  font-size: 4rem;
 }
-.section-title {
-  margin-bottom: 30px;
-  font-weight: 500;
+
+.hero-section .lead {
+  font-size: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
 }
-.project-card {
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  border: none;
+
+/* ------------------------------------- */
+/* --- 3. SECTIONS A PROPOS & CONTACT --- */
+/* ------------------------------------- */
+
+/* Texte de la section À Propos */
+.about-text {
+  font-size: 1.1rem;
+  color: #555;
 }
-.project-card:hover {
+
+/* Section Contact (déjà bien stylisée par Bootstrap, mais ajoutons un peu de padding) */
+#contact {
+  /* bg-dark et text-white sont déjà dans le HTML */
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* ------------------------------------- */
+/* --- 4. SECTION COMPÉTENCES --- */
+/* ------------------------------------- */
+
+#skills .col-md-3 {
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 15px; /* Espace entre les lignes */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#skills .col-md-3:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
+
+#skills h4 {
+  color: #dc3545; /* Utilisation du rouge pour les titres de catégorie */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+#skills p {
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+/* ------------------------------------- */
+/* --- 5. SECTION PROJETS --- */
+/* ------------------------------------- */
+
+.project-card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-card .card-body {
+  padding: 20px;
+}
+
+.project-card .card-title {
+  font-weight: 700;
+  color: #007bff; /* Bleu primaire */
+}
+
+/* Style des boutons de filtre de projets */
 .filter-btn {
-  margin: 5px;
+  border-radius: 50px;
+  margin: 0 5px;
+  transition: all 0.3s ease;
 }
 
-nav {
-  font-family: "Dancing Script", cursive;
-  font-size: 25px;
+.filter-btn.active,
+.filter-btn:hover {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
 }
+
+/* ------------------------------------- */
+/* --- 6. ANIMATION (FADE-IN) --- */
+/* ------------------------------------- */
+
+/* État initial : invisible et décalé vers le haut */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* État visible : opacité complète et position normale */
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
 nav a.link-info:hover {
-  color: bold;
+  font-weight: bold;
 }
-
-/* --- 1. Style pour mobile (par défaut) : texte centré --- */
 .about-text {
   /* Le texte est aligné au centre par défaut sur tous les écrans (y compris mobile) */
   text-align: center;
 }
 
-/* --- 2. Media Query pour écrans de bureau (Desktop, 'lg' et au-dessus) --- */
+/* --- . Media Query pour écrans de bureau (Desktop, 'lg' et au-dessus) --- */
 /* Le breakpoint 'lg' de Bootstrap est à 992px */
 @media (min-width: 992px) {
   .about-text {
