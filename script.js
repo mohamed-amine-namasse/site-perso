@@ -6,7 +6,7 @@ const projectsData = [
     id: "1",
     title: "Projet voyages",
     longDesc:
-      "Une application de destination de voyages utilisant HTML et CSS pour une présentation responsive et moderne. C'est un projet axé sur le design et l'expérience utilisateur de base.",
+      "Une application de destination de voyages utilisant HTML et CSS.",
     tech: "HTML, CSS, Figma",
     demoLink:
       "https://mohamed-amine-namasse.students-laplateforme.io/voyages/index.html",
