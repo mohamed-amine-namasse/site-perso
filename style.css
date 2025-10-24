@@ -1,6 +1,10 @@
 body {
   background-color: #f8f9fa;
 }
+#title {
+  font-family: "Dancing Script", cursive;
+  font-size: 28px;
+}
 .hero-section {
   background: linear-gradient(45deg, red, blue);
   color: white;
@@ -27,12 +31,12 @@ body {
   margin: 5px;
 }
 
-nav a.link-info:hover {
-  font-weight: bold;
+nav {
+  font-family: "Dancing Script", cursive;
+  font-size: 25px;
 }
-
-.text-justify {
-  text-align: justify !important;
+nav a.link-info:hover {
+  color: bold;
 }
 
 /* --- 1. Style pour mobile (par défaut) : texte centré --- */
