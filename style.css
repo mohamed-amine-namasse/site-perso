@@ -2,7 +2,7 @@ body {
   background-color: #f8f9fa;
 }
 .hero-section {
-  background-color: #343a40; /* Dark background */
+  background: linear-gradient(45deg, red, blue);
   color: white;
   padding: 80px 0;
   text-align: center;

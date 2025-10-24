@@ -2,30 +2,58 @@
 const projectsData = [
   {
     id: 1,
-    title: "Tableau de Bord SaaS",
+    title: "Projet Voyages",
     longDesc:
       "Création d'un tableau de bord performant avec des graphiques en temps réel. Le défi était l'optimisation des requêtes API et l'intégration de web sockets. J'ai utilisé React Query pour la gestion du cache et des états.",
     tech: "React, Redux, Chart.js, Bootstrap 5",
     role: "Développeur Front-end Lead",
-    demoLink: "http://demo.saas-dashboard.com",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/voyages/index.html",
+    codeLink: "https://github.com/mohamed-amine-namasse/voyages",
   },
   {
     id: 2,
-    title: "Calculatrice de Prêt",
+    title: "Projet module-connexion",
     longDesc:
       "Développement d'un outil purement frontend pour calculer les amortissements de prêts. Mise en œuvre d'une logique de calcul complexe sans aucune dépendance externe, pour une rapidité maximale.",
     tech: "Vanilla JS (ES6+), HTML5, CSS3",
     role: "Développeur Full Stack",
-    demoLink: "http://demo.calculator.com",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/module-connexion/index.php",
+    codeLink: "https://github.com/mohamed-amine-namasse/module-connexion",
   },
   {
     id: 3,
-    title: "API de Recettes",
+    title: "Projet livre-or",
     longDesc:
       "Construction d'un service d'API évolutif pour une application mobile. Le travail comprenait la modélisation des données, l'authentification JWT et l'optimisation des index MongoDB pour les recherches rapides.",
     tech: "Node.js, Express, MongoDB, Mongoose",
     role: "Développeur Back-end",
-    demoLink: "http://api.recettes-projet.com",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/livre-or/index.php",
+    codeLink: "https://github.com/mohamed-amine-namasse/livre-or",
+  },
+  {
+    id: 4,
+    title: "Projet mediatheque",
+    longDesc:
+      "Construction d'un service d'API évolutif pour une application mobile. Le travail comprenait la modélisation des données, l'authentification JWT et l'optimisation des index MongoDB pour les recherches rapides.",
+    tech: "Node.js, Express, MongoDB, Mongoose",
+    role: "Développeur Back-end",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/mediatheque_paris_grp3-main/public",
+    codeLink: "https://github.com/mohamed-amine-namasse/mediatheque_paris_grp3",
+  },
+  {
+    id: 5,
+    title: "Projet memory",
+    longDesc:
+      "Construction d'un service d'API évolutif pour une application mobile. Le travail comprenait la modélisation des données, l'authentification JWT et l'optimisation des index MongoDB pour les recherches rapides.",
+    tech: "Node.js, Express, MongoDB, Mongoose",
+    role: "Développeur Back-end",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/memory/index.php",
+    codeLink: "https://github.com/mohamed-amine-namasse/memory",
   },
 ];
 
@@ -74,7 +102,7 @@ document.querySelectorAll(".project-card").forEach((card) => {
       document.getElementById("modal-project-tech").textContent = project.tech;
       document.getElementById("modal-project-role").textContent = project.role;
       document.getElementById("modal-project-link").href = project.demoLink;
-
+      document.getElementById("modal-code-link").href = project.codeLink;
       // Afficher la Modale Bootstrap
       const projectModal = new bootstrap.Modal(
         document.getElementById("projectModal")
