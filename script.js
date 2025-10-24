@@ -6,9 +6,10 @@ const projectsData = [
     id: "1",
     title: "Projet voyages",
     longDesc:
-      "Un site de planification de voyages utilisant HTML et CSS pour une présentation responsive et moderne. C'est un projet axé sur le design et l'expérience utilisateur de base.",
-    tech: "HTML, CSS, Bootstrap",
-    demoLink: "#",
+      "Une application de destination de voyages utilisant HTML et CSS pour une présentation responsive et moderne. C'est un projet axé sur le design et l'expérience utilisateur de base.",
+    tech: "HTML, CSS, Figma",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/voyages/index.html",
     codeLink: "https://github.com/mohamed-amine-namasse/voyages",
   },
   {
@@ -17,7 +18,8 @@ const projectsData = [
     longDesc:
       "Un module complet de connexion et d'inscription sécurisé, gérant les sessions utilisateur avec PHP et utilisant SQL pour stocker les données de manière sécurisée.",
     tech: "HTML, CSS, PHP, SQL",
-    demoLink: "#",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/module-connexion/index.php",
     codeLink: "https://github.com/mohamed-amine-namasse/module-connexion",
   },
   {
@@ -26,7 +28,8 @@ const projectsData = [
     longDesc:
       "Un livre d'or interactif permettant aux utilisateurs de laisser des messages. Le contenu est géré dynamiquement en PHP et stocké dans une base de données SQL.",
     tech: "HTML, CSS, PHP, SQL",
-    demoLink: "#",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/livre-or/index.php",
     codeLink: "https://github.com/mohamed-amine-namasse/livre-or",
   },
   {
@@ -34,8 +37,9 @@ const projectsData = [
     title: "Projet mediatheque",
     longDesc:
       "Application de gestion de médiathèque permettant de suivre les emprunts et retours de livres et autres médias. Utilise PHP pour le backend et SQL pour la gestion des données.",
-    tech: "HTML, CSS, PHP, SQL",
-    demoLink: "#",
+    tech: "HTML, CSS, PHP, SQL, Figma, MVC",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/mediatheque_paris_grp3-main/public",
     codeLink: "https://github.com/mohamed-amine-namasse/mediatheque",
   },
   {
@@ -43,8 +47,9 @@ const projectsData = [
     title: "Projet memory",
     longDesc:
       "Jeu de Memory interactif. Ce projet met l'accent sur la programmation orientée objet (POO) en PHP pour gérer la logique du jeu, les cartes et les scores.",
-    tech: "HTML, CSS, PHP POO, SQL",
-    demoLink: "#",
+    tech: "HTML, CSS, PHP(POO), SQL",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/memory/index.php",
     codeLink: "https://github.com/mohamed-amine-namasse/memory",
   },
 ];
