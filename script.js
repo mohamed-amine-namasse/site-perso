@@ -56,7 +56,7 @@ const projectsData = [
 
 document.addEventListener("DOMContentLoaded", () => {
   // --------------------------------------
-  // 1. Logique du Modal (détails du projet) 💡
+  //  Logique du Modal (détails du projet) 💡
   // --------------------------------------
   const projectModalElement = document.getElementById("projectModal");
   // Crée une instance Bootstrap de la modale une seule fois
@@ -67,9 +67,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalTech = document.getElementById("modal-project-tech");
   const modalLink = document.getElementById("modal-project-link");
   const modalCodeLink = document.getElementById("modal-code-link");
+  // Cibler tous les boutons avec la nouvelle classe 'discover-btn'
 
-  document.querySelectorAll(".project-card").forEach((card) => {
-    card.addEventListener("click", function () {
+  document.querySelectorAll(".discover-btn").forEach((button) => {
+    button.addEventListener("click", function (event) {
+      event.preventDefault(); // Empêche le comportement par défaut du lien (le "#") // Récupérer l'ID du projet directement depuis le bouton
+
       const projectId = this.dataset.projectId;
       const project = projectsData.find((p) => p.id === projectId);
 
@@ -77,20 +80,17 @@ document.addEventListener("DOMContentLoaded", () => {
         // Remplir la modale avec les données du projet
         modalTitle.textContent = project.title;
         modalLongDesc.textContent = project.longDesc;
-        modalTech.textContent = project.tech;
+        modalTech.textContent = project.tech; // Mettre à jour les liens (Demo et Code)
 
-        // Mettre à jour les liens (Demo et Code)
         modalLink.href = project.demoLink;
-        modalCodeLink.href = project.codeLink;
+        modalCodeLink.href = project.codeLink; // Afficher la modale
 
-        // Afficher la modale
         projectModalInstance.show();
       }
     });
   });
-
   // --------------------------------------
-  // 2. Logique du Filtre de Projets
+  //  Logique du Filtre de Projets
   // --------------------------------------
   const filterButtons = document.querySelectorAll(".filter-btn");
   const projectItems = document.querySelectorAll(".project-item");
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // --------------------------------------
-  // 3. Logique de l'Animation (Intersection Observer) ✨
+  //  Logique de l'Animation (Intersection Observer) ✨
   // --------------------------------------
 
   /**
