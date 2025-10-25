@@ -66,6 +66,7 @@ body {
   background-color: white;
   border-radius: 10px;
   width: 24%;
+  border: gray 1px dashed;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   margin-top: 15px; /* Espace entre les lignes */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -73,6 +74,7 @@ body {
 
 #skills .col-md-3:hover {
   transform: translateY(-5px);
+  border: gray 1px dashed;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
