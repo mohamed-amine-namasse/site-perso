@@ -96,7 +96,6 @@ body {
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
 }
 
 .project-card:hover {
@@ -156,6 +155,18 @@ nav a.link-info:hover {
   text-align: center;
 }
 
+/* Limite la description du projet à 4 lignes maximum */
+.project-card .card-text {
+  /* Propriétés pour l'affichage multi-lignes */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Limite le contenu à 4 lignes */
+  -webkit-box-orient: vertical;
+
+  /* Garantit que toutes les cartes ont la même hauteur pour le texte */
+  /* Assurez-vous d'avoir une hauteur fixe suffisante pour 4 lignes de texte */
+  min-height: 5rem;
+}
 /* --- . Media Query pour écrans de bureau (Desktop, 'lg' et au-dessus) --- */
 /* Le breakpoint 'lg' de Bootstrap est à 992px */
 @media (min-width: 992px) {
