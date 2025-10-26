@@ -61,7 +61,7 @@ body {
 /* --- 4. SECTION COMPÉTENCES --- */
 /* ------------------------------------- */
 
-#skills .col-md-3 {
+#skills .col-lg-3 {
   padding: 20px;
   background-color: white;
   border-radius: 10px;
@@ -71,7 +71,7 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#skills .col-md-3:hover {
+#skills .col-lg-3:hover {
   transform: translateY(-5px);
   border: gray 1px dashed;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
