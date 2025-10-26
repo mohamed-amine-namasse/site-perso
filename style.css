@@ -63,7 +63,7 @@ body {
 
 #skills .col-lg-3 {
   padding: 20px;
-  background-color: white;
+
   border-radius: 10px;
   border: gray 1px dashed;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -76,7 +76,22 @@ body {
   border: gray 1px dashed;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
+/*pour mobile*/
+#skills .col-6 {
+  padding: 20px;
 
+  border-radius: 10px;
+  border: gray 1px dashed;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 15px; /* Espace entre les lignes */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#skills .col-6:hover {
+  transform: translateY(-5px);
+  border: gray 1px dashed;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
 #skills h4 {
   color: #dc3545; /* Utilisation du rouge pour les titres de catégorie */
   font-weight: 600;
