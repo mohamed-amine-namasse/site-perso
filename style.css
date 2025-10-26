@@ -63,7 +63,6 @@ body {
 
 #skills .col-lg-3 {
   padding: 20px;
-
   border-radius: 10px;
   border: gray 1px dashed;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -79,7 +78,6 @@ body {
 /*pour mobile*/
 #skills .col-6 {
   padding: 20px;
-
   border-radius: 10px;
   border: gray 1px dashed;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
