@@ -56,7 +56,7 @@ const projectsData = [
     id: "6",
     title: "Projet O'clock",
     longDesc:
-      "Le but de ce projet est de reproduire un minuteur, un chronomètre, un réveil, et une horloge.",
+      " Le but de ce projet est de reproduire un minuteur, un chronomètre, un réveil, et une horloge. Ce projet est fait en javascript,CSS et HTML.",
     tech: "HTML, CSS, JS",
     demoLink:
       "https://mohamed-amine-namasse.students-laplateforme.io/oclock/index.html",
