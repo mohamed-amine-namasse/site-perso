@@ -46,7 +46,7 @@ const projectsData = [
     id: "5",
     title: "Site La Plateforme_",
     longDesc:
-      " Il s'agit d'un site internet permettant d’anticiper le nombre d’étudiants qui seront présents au sein des locaux de l'école La plateforme_. Ce projet est fait en Boostrap javascript CSS et HTML.",
+      " Il s'agit d'un site internet permettant d’anticiper le nombre d’étudiants qui seront présents au sein des locaux de l'école La plateforme_. Ce projet est fait en Boostrap,javascript, CSS et HTML.",
     tech: "HTML, CSS, JS,Boostrap",
     demoLink:
       "https://mohamed-amine-namasse.students-laplateforme.io/bigjob/index.html",
