@@ -50,7 +50,8 @@ const projectsData = [
     tech: "HTML, CSS, JS, Boostrap",
     demoLink:
       "https://mohamed-amine-namasse.students-laplateforme.io/bigjob/index.html",
-    codeLink: "https://github.com/mohamed-amine-namasse/runtrackJs/bigjob",
+    codeLink:
+      "https://github.com/mohamed-amine-namasse/runtrackJs/tree/main/bigjob",
   },
   {
     id: "6",
