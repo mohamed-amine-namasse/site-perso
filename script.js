@@ -47,10 +47,20 @@ const projectsData = [
     title: "Site La Plateforme_",
     longDesc:
       " Il s'agit d'un site internet permettant d’anticiper le nombre d’étudiants qui seront présents au sein des locaux de l'école La plateforme_. Ce projet est fait en Boostrap,javascript, CSS et HTML.",
-    tech: "HTML, CSS, JS,Boostrap",
+    tech: "HTML, CSS, JS, Boostrap",
     demoLink:
       "https://mohamed-amine-namasse.students-laplateforme.io/bigjob/index.html",
     codeLink: "https://github.com/mohamed-amine-namasse/bigjob",
+  },
+  {
+    id: "6",
+    title: "Autocompletion",
+    longDesc:
+      " L’outil de barre de recherche est un outil très utilisé sur les sites. Elle englobe un élément très important : l’autocomplétion. L’autocomplétion va permettre de faire une recherche plus ou moins précise selon son paramétrage. Il s’agit du mécanisme qui permet de proposer à l’utilisateur des résultats pour sa recherche, en fonction de ce qu’il tape dans l’input. Les résultats s’adaptent à chaque fois que l’utilisateur entre un caractère supplémentaire.",
+    tech: "HTML, CSS, JS,Boostrap, PHP, SQL",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/autocompletion/index.php",
+    codeLink: "https://github.com/mohamed-amine-namasse/autocompletion",
   },
 ];
 
