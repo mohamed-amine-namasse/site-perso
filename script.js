@@ -20,7 +20,8 @@ const projectsData = [
     tech: "HTML, CSS, PHP, SQL, Figma, MVC",
     demoLink:
       "https://mohamed-amine-namasse.students-laplateforme.io/mediatheque_paris_grp3-main/public",
-    codeLink: "https://github.com/mohamed-amine-namasse/mediatheque",
+    codeLink:
+      "https://github.com/mohamed-amine-namasse/mediatheque_paris_grp3-main",
   },
   {
     id: "3",
