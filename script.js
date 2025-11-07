@@ -4,26 +4,6 @@
 const projectsData = [
   {
     id: "1",
-    title: "Projet voyages",
-    longDesc:
-      "Une application de destination de voyages utilisant HTML et CSS.Application qui a été maquettée en premier sur Figma puis conçue en mobile first.",
-    tech: "HTML, CSS, Figma",
-    demoLink:
-      "https://mohamed-amine-namasse.students-laplateforme.io/voyages/index.html",
-    codeLink: "https://github.com/mohamed-amine-namasse/voyages",
-  },
-  {
-    id: "2",
-    title: "Projet module-connexion",
-    longDesc:
-      "Un module complet de connexion et d'inscription sécurisé, gérant les sessions utilisateur avec PHP et utilisant SQL pour stocker les données de manière sécurisée.",
-    tech: "HTML, CSS, PHP, SQL",
-    demoLink:
-      "https://mohamed-amine-namasse.students-laplateforme.io/module-connexion/index.php",
-    codeLink: "https://github.com/mohamed-amine-namasse/module-connexion",
-  },
-  {
-    id: "3",
     title: "Projet livre-or",
     longDesc:
       "Un livre d'or interactif permettant aux utilisateurs de laisser des messages. Le contenu est géré dynamiquement en PHP et stocké dans une base de données SQL.",
@@ -33,17 +13,18 @@ const projectsData = [
     codeLink: "https://github.com/mohamed-amine-namasse/livre-or",
   },
   {
-    id: "4",
+    id: "2",
     title: "Projet mediatheque",
     longDesc:
       "Application de gestion de médiathèque permettant de suivre les emprunts et retours de livres et autres médias. Utilise PHP pour le backend et SQL pour la gestion des données.",
     tech: "HTML, CSS, PHP, SQL, Figma, MVC",
     demoLink:
       "https://mohamed-amine-namasse.students-laplateforme.io/mediatheque_paris_grp3-main/public",
-    codeLink: "https://github.com/mohamed-amine-namasse/mediatheque",
+    codeLink:
+      "https://github.com/mohamed-amine-namasse/mediatheque_paris_grp3-main",
   },
   {
-    id: "5",
+    id: "3",
     title: "Projet memory",
     longDesc:
       "Jeu de Memory interactif. Ce projet met l'accent sur la programmation orientée objet (POO) en PHP pour gérer la logique du jeu, les cartes et les scores.",
@@ -53,7 +34,7 @@ const projectsData = [
     codeLink: "https://github.com/mohamed-amine-namasse/memory",
   },
   {
-    id: "6",
+    id: "4",
     title: "Projet O'clock",
     longDesc:
       " Le but de ce projet est de reproduire un minuteur, un chronomètre, un réveil, et une horloge. Ce projet est fait en javascript,CSS et HTML.",
@@ -63,9 +44,30 @@ const projectsData = [
     codeLink: "https://github.com/mohamed-amine-namasse/oclock",
   },
   {
+    id: "5",
+    title: "Site La Plateforme_",
+    longDesc:
+      " Il s'agit d'un site internet permettant d’anticiper le nombre d’étudiants qui seront présents au sein des locaux de l'école La plateforme_. Ce projet est fait en Boostrap,javascript, CSS et HTML.",
+    tech: "HTML, CSS, JS, Boostrap",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/bigjob/index.html",
+    codeLink:
+      "https://github.com/mohamed-amine-namasse/runtrackJs/tree/main/bigjob",
+  },
+  {
+    id: "6",
+    title: "Autocompletion",
+    longDesc:
+      " L’outil de barre de recherche est un outil très utilisé sur les sites. Elle englobe un élément très important : l’autocomplétion. L’autocomplétion va permettre de faire une recherche plus ou moins précise selon son paramétrage. Il s’agit du mécanisme qui permet de proposer à l’utilisateur des résultats pour sa recherche, en fonction de ce qu’il tape dans l’input. Les résultats s’adaptent à chaque fois que l’utilisateur entre un caractère supplémentaire.",
+    tech: "HTML, CSS, JS,Boostrap, PHP, SQL",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/autocompletion/index.php",
+    codeLink: "https://github.com/mohamed-amine-namasse/autocompletion",
+  },
+  {
     id: "7",
     title: "MemoryReact",
-    longDesc: " Jeu de memoire fait en ReactJS",
+    longDesc: "Jeu de memoire fait en ReactJS",
     tech: "HTML, CSS, JS, ReactJS",
     demoLink:
       "https://mohamed-amine-namasse.students-laplateforme.io/memoryReact/index.html",
