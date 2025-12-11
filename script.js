@@ -73,6 +73,25 @@ const projectsData = [
       "https://mohamed-amine-namasse.students-laplateforme.io/memoryReact/index.html",
     codeLink: "https://github.com/mohamed-amine-namasse/memoryReact",
   },
+  {
+    id: "8",
+    title: "WordPress",
+    longDesc:
+      "Il s’agit d’un blog WordPress qui parle des dernières actualités sportives.Il regroupe essentiellement les dernières infos dans le football et dans le tennis. Les articles sont datés et triés.",
+    tech: "HTML, CSS, PHP",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/wordpress-6.8.3/wordpress/index.php",
+  },
+  {
+    id: "9",
+    title: "FootMarket",
+    longDesc:
+      "Il s’agit d’une boutique en ligne qui vend des crampons pour femmes.Boutique codée avec ReactJS pour le front-end et WordPress/WOOCommerce pour le back-end.",
+    tech: "HTML, CSS, JS, ReactJS",
+    demoLink:
+      "https://mohamed-amine-namasse.students-laplateforme.io/FootMarket",
+    codeLink: "https://github.com/mohamed-amine-namasse/ecom-grp4",
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
