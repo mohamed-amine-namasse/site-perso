@@ -86,7 +86,7 @@ const projectsData = [
     id: "9",
     title: "FootMarket",
     longDesc:
-      "Il s’agit d’une boutique en ligne qui vend des crampons pour femmes.Boutique codée avec ReactJS pour le front-end et WordPress/WOOCommerce pour le back-end.",
+      " Il s’agit d’une boutique en ligne qui vend des crampons pour femmes.Boutique codée avec ReactJS/Boostrap pour le front-end et WordPress/WOOCommerce pour le back-end.",
     tech: "HTML, CSS, JS, ReactJS",
     demoLink:
       "https://mohamed-amine-namasse.students-laplateforme.io/FootMarket",
