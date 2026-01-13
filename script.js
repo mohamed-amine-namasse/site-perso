@@ -191,6 +191,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// --------------------------------------
+//  Logique du slider ✨
+// --------------------------------------
 const swiper = new Swiper(".skillSwiper", {
   slidesPerView: 1,
   spaceBetween: 20,
