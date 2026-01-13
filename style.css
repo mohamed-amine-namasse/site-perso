@@ -77,7 +77,6 @@ body {
 }
 
 #skills h4 {
-  color: #dc3545; /* Utilisation du rouge pour les titres de catégorie */
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
@@ -208,4 +207,95 @@ nav a.link-info:hover {
 .btn-contact-nav:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+}
+
+:root {
+  --primary-color: #0d6efd;
+  --dark-bg: #0f172a;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: #334155;
+}
+
+/* NAVBAR GLASSMORPHISM */
+.custom-navbar {
+  background: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(10px);
+  padding: 15px 0;
+  transition: 0.3s;
+}
+
+.logo-text {
+  font-weight: 800;
+  color: white !important;
+  font-size: 1.4rem;
+}
+
+/* SKILL CARDS */
+.skill-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.skill-tags span {
+  background: #f1f5f9;
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* PROJECT CARDS */
+.project-card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+}
+
+.discover-btn {
+  border-radius: 50px;
+  font-weight: 600;
+  padding: 8px 25px;
+}
+
+/* FOOTER CONTACT */
+.footer-contact {
+  background: var(--dark-bg);
+}
+/* Effet au survol */
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
+  border-color: #0d6efd;
 }
