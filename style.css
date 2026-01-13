@@ -299,3 +299,15 @@ body {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
   border-color: #0d6efd;
 }
+
+/* 1. On empêche Swiper de couper ce qui dépasse en haut */
+.skillSwiper {
+  overflow: visible !important;
+  padding-top: 30px !important; /* Crée l'espace nécessaire pour la remontée */
+  padding-bottom: 50px !important;
+}
+
+/* 2. On s'assure que la section parente ne crée pas de scroll horizontal bizarre */
+#skills {
+  overflow: hidden;
+}
