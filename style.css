@@ -176,3 +176,36 @@ nav a.link-info:hover {
     text-align: justify;
   }
 }
+
+/* Liens de navigation */
+.custom-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+}
+
+.custom-link:hover {
+  color: #0d6efd !important; /* Bleu Bootstrap */
+}
+
+/* Soulignement animé au survol */
+.custom-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0d6efd;
+  transition: width 0.3s ease;
+}
+
+.custom-link:hover::after {
+  width: 100%;
+}
+
+.btn-contact-nav:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+}
