@@ -67,7 +67,9 @@ body {
   border: gray 1px dashed;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   margin-top: 15px; /* Espace entre les lignes */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 #skills .col-lg-3:hover {
@@ -95,7 +97,9 @@ body {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .project-card:hover {
@@ -134,7 +138,9 @@ body {
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
 }
 
 /* État visible : opacité complète et position normale */
@@ -288,7 +294,11 @@ body {
   font-weight: 600;
   padding: 8px 25px;
 }
-
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
 /* FOOTER CONTACT */
 .footer-contact {
   background: var(--dark-bg);
@@ -310,4 +320,24 @@ body {
 /* 2. On s'assure que la section parente ne crée pas de scroll horizontal bizarre */
 #skills {
   overflow: hidden;
+}
+
+.reading-bar {
+  position: fixed; /* 'fixed' au lieu de 'absolute' pour rester à l'écran */
+  top: 66px;
+  left: 0;
+  width: 0;
+  height: 6px;
+  background-color: #ff3366; /* Ajout d'une couleur pour la voir */
+  z-index: 9999; /* S'assure que la barre passe au-dessus du reste du contenu */
+
+  /* Animation scroll-driven */
+  animation: fill linear;
+  animation-timeline: scroll();
+}
+
+@keyframes fill {
+  to {
+    width: 100%;
+  }
 }
