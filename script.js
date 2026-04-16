@@ -97,7 +97,7 @@ const projectsData = [
     title: "MarsAI",
     longDesc:
       "Le festival marsAI est un concours international de courts-métrages de 1 minute dont la particularité est d'être intégralement générés par Intelligence Artificielle.",
-    tech: "HTML, CSS, JS, Vite, S3, SQL, NodeJS, Wordpress, TailwindCSS",
+    tech: "HTML, CSS, JS, Vite, S3, SQL, NodeJS, Wordpress, TailwindCSS, i18n, SEO(Google Analytics, Google Search Console), Brevo",
     demoLink:
       "https://samuel-corinthe.students-laplateforme.io/MarsAiFestival/accueil",
     codeLink: "https://github.com/mohamed-amine-namasse/MarsAi",
