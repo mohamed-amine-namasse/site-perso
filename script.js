@@ -78,7 +78,7 @@ const projectsData = [
     title: "WordPress",
     longDesc:
       "Il s’agit d’un blog WordPress qui parle des dernières actualités sportives.Il regroupe essentiellement les dernières infos dans le football et dans le tennis. Les articles sont datés et triés.",
-    tech: "HTML, CSS, PHP",
+    tech: "WordPress",
     demoLink:
       "https://mohamed-amine-namasse.students-laplateforme.io/wordpress-6.8.3/wordpress/index.php",
   },
@@ -94,6 +94,16 @@ const projectsData = [
   },
   {
     id: "10",
+    title: "MarsAI",
+    longDesc:
+      "Le festival marsAI est un concours international de courts-métrages de 1 minute dont la particularité est d'être intégralement générés par Intelligence Artificielle.",
+    tech: "HTML, CSS, JS, Vite, S3, SQL, NodeJS, Wordpress, TailwindCSS",
+    demoLink:
+      "https://samuel-corinthe.students-laplateforme.io/MarsAiFestival/accueil",
+    codeLink: "https://github.com/mohamed-amine-namasse/MarsAi",
+  },
+  {
+    id: "11",
     title: "Cinetech",
     longDesc:
       " Le but de ce projet est de réaliser une bibliothèque de films et de séries, grâce à une API publique disponible en ligne.",

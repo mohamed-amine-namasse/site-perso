@@ -121,7 +121,7 @@
                 <i class="fas fa-server skill-icon"></i>
                 <h4>Backend</h4>
                 <div class="skill-tags">
-                  <span>PHP</span> <span>Node.js</span> <span>SQL</span>
+                  <span>PHP</span> <span>NodeJS</span> <span>SQL</span>
                   <span>MongoDB</span>
                 </div>
               </div>
@@ -143,6 +143,7 @@
                 <h4>Outils & DevOps</h4>
                 <div class="skill-tags">
                   <span>Git</span> <span>GitHub</span> <span>Docker</span>
+                  <span>S3</span>
                 </div>
               </div>
             </div>
@@ -213,6 +214,12 @@
         >
           PHP POO
         </button>
+        <button
+          class="btn btn-outline-primary filter-btn"
+          data-filter="wordpress"
+        >
+          WordPress
+        </button>
         <button class="btn btn-outline-primary filter-btn" data-filter="sql">
           SQL
         </button>
@@ -225,11 +232,23 @@
         <button class="btn btn-outline-primary filter-btn" data-filter="react">
           ReactJS
         </button>
+        <button class="btn btn-outline-primary filter-btn" data-filter="vite">
+          ViteJS
+        </button>
+        <button class="btn btn-outline-primary filter-btn" data-filter="node">
+          NodeJS
+        </button>
         <button
           class="btn btn-outline-primary filter-btn"
           data-filter="typescript"
         >
           Typescript
+        </button>
+        <button
+          class="btn btn-outline-primary filter-btn"
+          data-filter="tailwind"
+        >
+          Tailwind
         </button>
       </div>
 
@@ -429,13 +448,12 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 project-item" data-tech="html css ">
+        <div class="col-md-6 col-lg-4 project-item" data-tech="wordpress ">
           <div class="card project-card h-100" data-project-id="8">
             <div class="card-body">
               <h5 class="card-title text-primary">WordPress</h5>
-              <span class="badge bg-danger">HTML</span>
-              <span class="badge bg-success">CSS</span>
-              <span class="badge bg-primary">PHP</span>
+
+              <span class="badge bg-info text-dark">Wordpress</span>
               <p class="card-text">
                 Il s’agit d’un blog WordPress qui parle des dernières actualités
                 sportives.Il regroupe essentiellement les dernières infos dans
@@ -482,9 +500,41 @@
         </div>
         <div
           class="col-md-6 col-lg-4 project-item"
-          data-tech="html css js typescript "
+          data-tech="html css js sql vite wordpress node tailwind "
         >
           <div class="card project-card h-100" data-project-id="10">
+            <div class="card-body">
+              <h5 class="card-title text-primary">MarsAI</h5>
+              <span class="badge bg-danger">HTML</span>
+              <span class="badge bg-success">CSS</span>
+              <span class="badge bg-warning">JS</span>
+              <span class="badge bg-info text-dark">Wordpress</span>
+              <span class="badge bg-info-subtle text-dark">Vite</span>
+              <span class="badge bg-success-subtle text-dark">Bucket S3</span>
+              <span class="badge bg-dark">SQL</span>
+              <span class="badge bg-dark-subtle text-dark">NodeJS</span>
+              <span class="badge bg-danger-subtle text-dark">Tailwind</span>
+              <p class="card-text">
+                Le festival marsAI est un concours international de
+                courts-métrages de 1 minute dont la particularité est d'être
+                intégralement générés par Intelligence Artificielle
+              </p>
+              <div class="d-flex justify-content-center">
+                <a
+                  href="#"
+                  class="btn btn-warning discover-btn"
+                  data-project-id="10"
+                  >Découvrir</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-md-6 col-lg-4 project-item"
+          data-tech="html css js typescript "
+        >
+          <div class="card project-card h-100" data-project-id="11">
             <div class="card-body">
               <h5 class="card-title text-primary">Cinetech</h5>
               <span class="badge bg-danger">HTML</span>
@@ -501,7 +551,7 @@
                 <a
                   href="#"
                   class="btn btn-warning discover-btn"
-                  data-project-id="10"
+                  data-project-id="11"
                   >Découvrir</a
                 >
               </div>
