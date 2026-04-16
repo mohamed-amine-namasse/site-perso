@@ -92,6 +92,15 @@ const projectsData = [
       "https://mohamed-amine-namasse.students-laplateforme.io/FootMarket",
     codeLink: "https://github.com/mohamed-amine-namasse/ecom-grp4",
   },
+  {
+    id: "10",
+    title: "Cinetech",
+    longDesc:
+      " Le but de ce projet est de réaliser une bibliothèque de films et de séries, grâce à une API publique disponible en ligne.",
+    tech: "HTML, CSS, JS, Typescript",
+    demoLink: "https://mohamed-amine-namasse.students-laplateforme.io/cinetech",
+    codeLink: "https://github.com/mohamed-amine-namasse/cinetech",
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -181,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       // Déclenche l'animation dès que 10% de l'élément est visible
       threshold: 0.1,
-    }
+    },
   );
 
   // Cible tous les éléments qui doivent avoir une animation d'introduction
