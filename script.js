@@ -87,7 +87,7 @@ const projectsData = [
     title: "FootMarket",
     longDesc:
       " Il s’agit d’une boutique en ligne qui vend des crampons pour femmes.Boutique codée avec ReactJS/Boostrap pour le front-end et WordPress/WOOCommerce pour le back-end.",
-    tech: "HTML, CSS, JS, ReactJS",
+    tech: "HTML, CSS, JS, Figma, ReactJS",
     demoLink:
       "https://mohamed-amine-namasse.students-laplateforme.io/FootMarket",
     codeLink: "https://github.com/mohamed-amine-namasse/ecom-grp4",
@@ -97,7 +97,7 @@ const projectsData = [
     title: "MarsAI",
     longDesc:
       "Le festival marsAI est un concours international de courts-métrages de 1 minute dont la particularité est d'être intégralement générés par Intelligence Artificielle.",
-    tech: "HTML, CSS, JS, Vite, S3, SQL, NodeJS, Wordpress, TailwindCSS, i18n, SEO(Google Analytics, Google Search Console), Brevo",
+    tech: "HTML, CSS, JS, Figma, Vite, S3, SQL, NodeJS, Wordpress, TailwindCSS, i18n, SEO(Google Analytics, Google Search Console), Brevo",
     demoLink:
       "https://samuel-corinthe.students-laplateforme.io/MarsAiFestival/accueil",
     codeLink: "https://github.com/mohamed-amine-namasse/MarsAi",
