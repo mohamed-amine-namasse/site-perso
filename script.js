@@ -8,8 +8,7 @@ const projectsData = [
     longDesc:
       "Un livre d'or interactif permettant aux utilisateurs de laisser des messages. Le contenu est géré dynamiquement en PHP et stocké dans une base de données SQL.",
     tech: "HTML, CSS, PHP, SQL",
-    demoLink:
-      "https://mohamed-amine-namasse.students-laplateforme.io/livre-or/index.php",
+    demoLink: "https://mohamed-amine-namasse.students-laplateforme.io/livre-or",
     codeLink: "https://github.com/mohamed-amine-namasse/livre-or",
   },
   {
@@ -29,8 +28,7 @@ const projectsData = [
     longDesc:
       "Jeu de Memory interactif. Ce projet met l'accent sur la programmation orientée objet (POO) en PHP pour gérer la logique du jeu, les cartes et les scores.",
     tech: "HTML, CSS, PHP(POO), SQL",
-    demoLink:
-      "https://mohamed-amine-namasse.students-laplateforme.io/memory/index.php",
+    demoLink: "https://mohamed-amine-namasse.students-laplateforme.io/memory",
     codeLink: "https://github.com/mohamed-amine-namasse/memory",
   },
   {
@@ -39,8 +37,7 @@ const projectsData = [
     longDesc:
       " Le but de ce projet est de reproduire un minuteur, un chronomètre, un réveil, et une horloge. Ce projet est fait en javascript,CSS et HTML.",
     tech: "HTML, CSS, JS",
-    demoLink:
-      "https://mohamed-amine-namasse.students-laplateforme.io/oclock/index.html",
+    demoLink: "https://mohamed-amine-namasse.students-laplateforme.io/oclock",
     codeLink: "https://github.com/mohamed-amine-namasse/oclock",
   },
   {
@@ -49,8 +46,7 @@ const projectsData = [
     longDesc:
       " Il s'agit d'un site internet permettant d’anticiper le nombre d’étudiants qui seront présents au sein des locaux de l'école La plateforme_. Ce projet est fait en Boostrap,javascript, CSS et HTML.",
     tech: "HTML, CSS, JS, Boostrap",
-    demoLink:
-      "https://mohamed-amine-namasse.students-laplateforme.io/bigjob/index.html",
+    demoLink: "https://mohamed-amine-namasse.students-laplateforme.io/bigjob",
     codeLink:
       "https://github.com/mohamed-amine-namasse/runtrackJs/tree/main/bigjob",
   },
@@ -61,7 +57,7 @@ const projectsData = [
       " L’outil de barre de recherche est un outil très utilisé sur les sites. Elle englobe un élément très important : l’autocomplétion. L’autocomplétion va permettre de faire une recherche plus ou moins précise selon son paramétrage. Il s’agit du mécanisme qui permet de proposer à l’utilisateur des résultats pour sa recherche, en fonction de ce qu’il tape dans l’input. Les résultats s’adaptent à chaque fois que l’utilisateur entre un caractère supplémentaire.",
     tech: "HTML, CSS, JS,Boostrap, PHP, SQL",
     demoLink:
-      "https://mohamed-amine-namasse.students-laplateforme.io/autocompletion/index.php",
+      "https://mohamed-amine-namasse.students-laplateforme.io/autocompletion",
     codeLink: "https://github.com/mohamed-amine-namasse/autocompletion",
   },
   {
@@ -70,7 +66,7 @@ const projectsData = [
     longDesc: "Jeu de memoire fait en ReactJS",
     tech: "HTML, CSS, JS, ReactJS",
     demoLink:
-      "https://mohamed-amine-namasse.students-laplateforme.io/memoryReact/index.html",
+      "https://mohamed-amine-namasse.students-laplateforme.io/memoryReact",
     codeLink: "https://github.com/mohamed-amine-namasse/memoryReact",
   },
   {
@@ -80,7 +76,7 @@ const projectsData = [
       "Il s’agit d’un blog WordPress qui parle des dernières actualités sportives.Il regroupe essentiellement les dernières infos dans le football et dans le tennis. Les articles sont datés et triés.",
     tech: "WordPress",
     demoLink:
-      "https://mohamed-amine-namasse.students-laplateforme.io/wordpress-6.8.3/wordpress/index.php",
+      "https://mohamed-amine-namasse.students-laplateforme.io/wordpress-6.8.3/wordpress",
   },
   {
     id: "9",
@@ -97,7 +93,7 @@ const projectsData = [
     title: "MarsAI",
     longDesc:
       "Le festival marsAI est un concours international de courts-métrages de 1 minute dont la particularité est d'être intégralement générés par Intelligence Artificielle.",
-    tech: "HTML, CSS, JS, Figma, Vite, S3, SQL, NodeJS, Wordpress, TailwindCSS, i18n, SEO(Google Analytics, Google Search Console), Brevo",
+    tech: "HTML, CSS, JS, Figma,React JS, Vite, S3, SQL, NodeJS, Wordpress, TailwindCSS, i18n, SEO(Google Analytics, Google Search Console, Lighthouse), Brevo",
     demoLink:
       "https://samuel-corinthe.students-laplateforme.io/MarsAiFestival/accueil",
     codeLink: "https://github.com/mohamed-amine-namasse/MarsAi",
