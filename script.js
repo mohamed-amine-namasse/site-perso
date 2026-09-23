@@ -44,8 +44,8 @@ const projectsData = [
     id: "5",
     title: "Site La Plateforme_",
     longDesc:
-      " Il s'agit d'un site internet permettant d’anticiper le nombre d’étudiants qui seront présents au sein des locaux de l'école La plateforme_. Ce projet est fait en Boostrap,javascript, CSS et HTML.",
-    tech: "HTML, CSS, JS, Boostrap",
+      " Il s'agit d'un site internet permettant d’anticiper le nombre d’étudiants qui seront présents au sein des locaux de l'école La plateforme_. Ce projet est fait en Bootstrap,javascript, CSS et HTML.",
+    tech: "HTML, CSS, JS, Bootstrap",
     demoLink: "https://mohamed-amine-namasse.students-laplateforme.io/bigjob",
     codeLink:
       "https://github.com/mohamed-amine-namasse/runtrackJs/tree/main/bigjob",
@@ -55,7 +55,7 @@ const projectsData = [
     title: "Autocompletion",
     longDesc:
       " L’outil de barre de recherche est un outil très utilisé sur les sites. Elle englobe un élément très important : l’autocomplétion. L’autocomplétion va permettre de faire une recherche plus ou moins précise selon son paramétrage. Il s’agit du mécanisme qui permet de proposer à l’utilisateur des résultats pour sa recherche, en fonction de ce qu’il tape dans l’input. Les résultats s’adaptent à chaque fois que l’utilisateur entre un caractère supplémentaire.",
-    tech: "HTML, CSS, JS,Boostrap, PHP, SQL",
+    tech: "HTML, CSS, JS,Bootstrap, PHP, SQL",
     demoLink:
       "https://mohamed-amine-namasse.students-laplateforme.io/autocompletion",
     codeLink: "https://github.com/mohamed-amine-namasse/autocompletion",
@@ -82,7 +82,7 @@ const projectsData = [
     id: "9",
     title: "FootMarket",
     longDesc:
-      " Il s’agit d’une boutique en ligne qui vend des crampons pour femmes.Boutique codée avec ReactJS/Boostrap pour le front-end et WordPress/WOOCommerce pour le back-end.",
+      " Il s’agit d’une boutique en ligne qui vend des crampons pour femmes.Boutique codée avec ReactJS/Bootstrap pour le front-end et WordPress/WOOCommerce pour le back-end.",
     tech: "HTML, CSS, JS, Figma, ReactJS",
     demoLink:
       "https://mohamed-amine-namasse.students-laplateforme.io/FootMarket",
