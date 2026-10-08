@@ -107,6 +107,14 @@ const projectsData = [
     demoLink: "https://mohamed-amine-namasse.students-laplateforme.io/cinetech",
     codeLink: "https://github.com/mohamed-amine-namasse/cinetech",
   },
+  {
+    id: "12",
+    title: "Intra scolaire",
+    longDesc:
+      "Le but de ce projet est de réaliser un intranet scolaire pour les étudiants et les professeurs en utilisant Symfony et Docker. L'application permet de gérer les cours, les notes, les absences et les communications entre étudiants et enseignants.",
+    tech: "Symfony, PHP, Docker, Bootstrap",
+    codeLink: "https://github.com/mohamed-amine-namasse/Intra-Scolaire-",
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
