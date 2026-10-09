@@ -113,6 +113,7 @@ const projectsData = [
     longDesc:
       "Le but de ce projet est de réaliser un intranet scolaire pour les étudiants et les professeurs en utilisant Symfony et Docker. L'application permet de gérer les cours, les notes, les absences et les communications entre étudiants et enseignants.",
     tech: "Symfony, PHP, Docker, Bootstrap",
+    demoLink: "https://intrax.alwaysdata.net",
     codeLink: "https://github.com/mohamed-amine-namasse/Intra-Scolaire-",
   },
 ];
