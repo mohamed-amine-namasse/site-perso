@@ -460,7 +460,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     } else if (lower === "about") {
       printTermLine(
-        "Mohamed-Amine NAMASSE — Développeur Full-Stack (La Plateforme_) passionné par le développement web et web mobile. Mission : transformer des idées complexes en applications élégantes et efficaces.",
+        "Mohamed-Amine NAMASSE — Développeur Full-Stack passionné par le développement web et web mobile. Mission : transformer des idées complexes en applications élégantes et efficaces.",
       );
     } else if (lower === "skills") {
       printTermLine(
