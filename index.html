@@ -1,694 +1,1003 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Mohamed-Amine NAMASSE - Développeur Full Stack</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Mohamed-Amine NAMASSE // Portfolio Full-Stack Rétro</title>
+
+    <!-- Polices Rétro & Monospace : Press Start 2P, VT323, Fira Code -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Press+Start+2P&family=VT323&display=swap"
       rel="stylesheet"
     />
-    <script src="./script.js" defer></script>
 
+    <!-- Font Awesome 6.5.1 CDN -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Three.js r128 CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP 3.12.5 + ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              pixel: ['"Press Start 2P"', "monospace"],
+              vt: ['"VT323"', "monospace"],
+              mono: ['"Fira Code"', "monospace"],
+            },
+            colors: {
+              crt: {
+                bg: "#060908",
+                panel: "#0b120f",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-  />
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" id="title" href="#"> Portfolio </a>
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  <body data-theme="green" class="antialiased relative selection:bg-green-500">
+    <!-- Overlays CRT (Scanlines & Vignette) -->
+    <div class="crt-scanlines" aria-hidden="true"></div>
+    <div class="crt-vignette" aria-hidden="true"></div>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto align-items-center">
-            <li class="nav-item">
-              <a class="nav-link custom-link" href="#about">À Propos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link custom-link" href="#projects">Projets</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link custom-link" href="#skills">Compétences</a>
-            </li>
+    <!-- Canvas 3D Three.js -->
+    <div id="retro-webgl" aria-hidden="true"></div>
 
-            <li class="nav-item">
-              <a
-                class="nav-link link-light btn btn-outline-primary rounded ms-lg-3"
-                href="#contact"
-                >Contact</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="reading-bar"></div>
-    <!-- SECTION 1: HERO  -->
-    <section class="hero-section mt-5 fade-in">
-      <div class="container">
-        <h1>Salut, je suis Mohamed-Amine NAMASSE</h1>
-        <p class="lead">
-          Développeur Full Stack passionné par le développement web et web
-          mobile.
+    <!-- =====================================================================
+         1. ÉCRAN DE DÉMARRAGE BIOS
+    ====================================================================== -->
+    <div
+      id="bios-boot"
+      class="fixed inset-0 z-[100] bg-[#040706] p-6 sm:p-10 flex flex-col justify-between font-vt text-xl sm:text-2xl text-phosphor transition-opacity duration-500"
+    >
+      <div>
+        <p>NAMASSE-DEV BIOS v4.20 (C) PREMIUM EDITION</p>
+        <p class="text-slate-400 text-lg">
+          USER : MOHAMED-AMINE NAMASSE // ROLE : FULL-STACK WEB &amp; MOBILE
         </p>
-        <a href="#projects" class="btn btn-lg btn-outline-light mt-3"
-          >Voir mes projets</a
-        >
-      </div>
-    </section>
-
-    <!-- SECTION 2: A PROPOS  -->
-    <section id="about" class="container py-5">
-      <h2 class="section-title text-center text-danger">👋 À propos de moi</h2>
-      <div class="row">
-        <div class="col-md-8 mx-auto text-center">
-          <p class="about-text">
-            Bonjour ! Je suis un développeur full-stack/front-end/back-end qui
-            aime transformer des idées complexes en applications élégantes et
-            fonctionnelles. Ma mission ? Résoudre vos défis techniques avec un
-            code propre et efficace. Découvrez ci-dessous mes réalisations.
+        <div class="mt-6 space-y-1 text-lg sm:text-xl">
+          <p>
+            &gt; Montage de /home/mohamed-amine/portfolio...
+            <span class="text-white">[OK]</span>
+          </p>
+          <p>
+            &gt; Chargement de script.js (projectsData &amp; skills)...
+            <span class="text-white">[OK]</span>
+          </p>
+          <p>
+            &gt; Initialisation du shell interactif &amp; matrice 3D...
+            <span class="text-white">[PRÊT]</span>
           </p>
         </div>
       </div>
-    </section>
-
-    <!-- SECTION 3: COMPÉTENCES -->
-    <section id="skills" class="py-5 bg-light fade-in">
-      <div class="container">
-        <h2 class="section-title text-center mb-5">
-          🛠 Compétences techniques
-        </h2>
-
-        <div class="swiper skillSwiper pb-5">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide h-auto">
-              <div class="skill-card shadow-sm h-100">
-                <i class="fas fa-code skill-icon"></i>
-                <h4>Frontend</h4>
-                <div class="skill-tags">
-                  <span>HTML5</span> <span>CSS3</span> <span>Javascript</span
-                  ><span>Typescript</span> <span>ReactJS</span>
-                  <span>Redux</span>
-                  <span>Sass</span>
-                  <span>Tailwind</span>
-                  <span>Bootstrap</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide h-auto">
-              <div class="skill-card shadow-sm h-100">
-                <i class="fas fa-server skill-icon"></i>
-                <h4>Backend</h4>
-                <div class="skill-tags">
-                  <span>PHP</span> <span>NodeJS</span> <span>SQL</span>
-                  <span>MongoDB</span><span>Symfony</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide h-auto">
-              <div class="skill-card shadow-sm h-100">
-                <i class="fas fa-laptop-code skill-icon"></i>
-                <h4>Langages de programmation</h4>
-                <div class="skill-tags">
-                  <span>C</span> <span>C++</span> <span>Python</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide h-auto">
-              <div class="skill-card shadow-sm h-100">
-                <i class="fas fa-tools skill-icon"></i>
-                <h4>Outils & DevOps</h4>
-                <div class="skill-tags">
-                  <span>Git</span> <span>GitHub</span> <span>Docker</span>
-                  <span>S3</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide h-auto">
-              <div class="skill-card shadow-sm h-100">
-                <i class="fas fa-clipboard skill-icon"></i>
-                <h4>Tests</h4>
-                <div class="skill-tags">
-                  <span>PHPUnit</span> <span>Jest</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide h-auto">
-              <div class="skill-card shadow-sm h-100">
-                <i class="fas fa-palette skill-icon"></i>
-                <h4>Design web & CMS</h4>
-                <div class="skill-tags">
-                  <span>Figma</span> <span>WordPress</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide h-auto">
-              <div class="skill-card shadow-sm h-100">
-                <i class="fas fa-sitemap skill-icon"></i>
-                <h4>Design Patterns</h4>
-                <div class="skill-tags">
-                  <span>MVC</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide h-auto">
-              <div class="skill-card shadow-sm h-100">
-                <i class="fas fa-mobile-alt skill-icon"></i>
-                <h4>Responsive</h4>
-                <div class="skill-tags">
-                  <span>Desktop/Mobile</span> <span>Mobile first</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
+      <div
+        class="flex items-center justify-between border-t border-white/15 pt-4"
+      >
+        <span class="font-pixel text-xs sm:text-sm">BOOTING PORTFOLIO...</span>
+        <span id="bios-percent" class="font-pixel text-sm sm:text-base"
+          >100%</span
+        >
       </div>
-    </section>
-    <!-- SECTION 4: PROJETS - Centrage des projets dans la grille -->
-    <section id="projects" class="container py-5 fade-in">
-      <h2 class="section-title text-center">💻 Mes dernières réalisations</h2>
+    </div>
 
-      <div class="text-center mb-4">
-        <button
-          class="btn btn-outline-primary filter-btn active"
-          data-filter="all"
-        >
-          Tous
-        </button>
-        <button class="btn btn-outline-primary filter-btn" data-filter="html">
-          HTML
-        </button>
-        <button class="btn btn-outline-primary filter-btn" data-filter="css">
-          CSS
-        </button>
-        <button class="btn btn-outline-primary filter-btn" data-filter="js">
-          JS
-        </button>
-        <button class="btn btn-outline-primary filter-btn" data-filter="php">
-          PHP
-        </button>
-        <button
-          class="btn btn-outline-primary filter-btn"
-          data-filter="php-poo"
-        >
-          PHP POO
-        </button>
-        <button
-          class="btn btn-outline-primary filter-btn"
-          data-filter="symfony"
-        >
-          Symfony
-        </button>
-        <button
-          class="btn btn-outline-primary filter-btn"
-          data-filter="wordpress"
-        >
-          WordPress
-        </button>
-        <button class="btn btn-outline-primary filter-btn" data-filter="sql">
-          SQL
-        </button>
-        <button
-          class="btn btn-outline-primary filter-btn"
-          data-filter="bootstrap"
-        >
-          Bootstrap
-        </button>
-        <button class="btn btn-outline-primary filter-btn" data-filter="react">
-          ReactJS
-        </button>
-        <button class="btn btn-outline-primary filter-btn" data-filter="vite">
-          ViteJS
-        </button>
-        <button class="btn btn-outline-primary filter-btn" data-filter="node">
-          NodeJS
-        </button>
-        <button
-          class="btn btn-outline-primary filter-btn"
-          data-filter="typescript"
-        >
-          Typescript
-        </button>
-        <button
-          class="btn btn-outline-primary filter-btn"
-          data-filter="tailwind"
-        >
-          Tailwind
-        </button>
-        <button class="btn btn-outline-primary filter-btn" data-filter="docker">
-          Docker
-        </button>
-      </div>
-
-      <div class="row g-4 justify-content-center" id="projects-grid">
-        <!-- AJOUT : justify-content-center pour centrer les cartes de projets -->
-        <!-- Les éléments de projet individuels peuvent également bénéficier d'une animation en ajoutant 'fade-in' si désiré -->
-
-        <div
-          class="col-md-6 col-lg-4 project-item"
-          data-tech="html css php sql"
-        >
-          <div class="card project-card h-100" data-project-id="1">
-            <div class="card-body">
-              <h5 class="card-title text-primary">Projet livre-or</h5>
-              <span class="badge bg-danger">HTML</span>
-              <span class="badge bg-success">CSS</span>
-              <span class="badge bg-primary">PHP</span>
-              <span class="badge bg-dark">SQL</span>
-              <p class="card-text">
-                Un livre d'or interactif permettant aux utilisateurs de laisser
-                des messages. Le contenu est géré dynamiquement en PHP et stocké
-                dans une base de données SQL.
-              </p>
-              <div class="d-flex justify-content-center">
-                <a
-                  href="#"
-                  class="btn btn-warning discover-btn"
-                  data-project-id="1"
-                  >Découvrir</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-6 col-lg-4 project-item"
-          data-tech="html css php sql"
-        >
-          <div class="card project-card h-100" data-project-id="2">
-            <div class="card-body">
-              <h5 class="card-title text-primary">Projet mediatheque</h5>
-              <span class="badge bg-danger">HTML</span>
-              <span class="badge bg-success">CSS</span>
-              <span class="badge bg-primary">PHP</span>
-              <span class="badge bg-dark">SQL</span>
-              <p class="card-text">
-                Application de gestion de médiathèque permettant de suivre les
-                emprunts et retours de livres et autres médias. Utilise PHP pour
-                le backend et SQL pour la gestion des données.
-              </p>
-              <div class="d-flex justify-content-center">
-                <a
-                  href="#"
-                  class="btn btn-warning discover-btn"
-                  data-project-id="2"
-                  >Découvrir</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="col-md-6 col-lg-4 project-item"
-          data-tech="html css php-poo sql"
-        >
-          <div class="card project-card h-100" data-project-id="3">
-            <div class="card-body">
-              <h5 class="card-title text-primary">Projet memory</h5>
-              <span class="badge bg-danger">HTML</span>
-              <span class="badge bg-success">CSS</span>
-              <span class="badge bg-info">PHP POO</span>
-              <span class="badge bg-dark">SQL</span>
-              <p class="card-text">
-                Jeu de Memory interactif. Ce projet met l'accent sur la
-                programmation orientée objet (POO) en PHP pour gérer la logique
-                du jeu, les cartes et les scores.
-              </p>
-              <div class="d-flex justify-content-center">
-                <a
-                  href="#"
-                  class="btn btn-warning discover-btn"
-                  data-project-id="3"
-                  >Découvrir</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 project-item" data-tech="html css js">
-          <div class="card project-card h-100" data-project-id="4">
-            <div class="card-body">
-              <h5 class="card-title text-primary">Projet O'clock</h5>
-              <span class="badge bg-danger">HTML</span>
-              <span class="badge bg-success">CSS</span>
-              <span class="badge bg-warning">JS</span>
-              <p class="card-text">
-                Le but de ce projet est de reproduire un minuteur, un
-                chronomètre, un réveil, et une horloge. Ce projet est fait en
-                javascript,CSS et HTML.
-              </p>
-              <div class="d-flex justify-content-center">
-                <a
-                  href="#"
-                  class="btn btn-warning discover-btn"
-                  data-project-id="4"
-                  >Découvrir</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-6 col-lg-4 project-item"
-          data-tech="html css js bootstrap"
-        >
-          <div class="card project-card h-100" data-project-id="5">
-            <div class="card-body">
-              <h5 class="card-title text-primary">
-                Projet site La Plateforme_
-              </h5>
-              <span class="badge bg-danger">HTML</span>
-              <span class="badge bg-success">CSS</span>
-              <span class="badge bg-warning">JS</span>
-              <span class="badge bg-danger-subtle text-dark">Bootstrap</span>
-              <p class="card-text">
-                Il s'agit d'un site internet permettant d’anticiper le nombre
-                d’étudiants qui seront présents au sein des locaux de l'école La
-                plateforme_. Ce projet est fait en Bootstrap,javascript,CSS et
-                HTML.
-              </p>
-              <div class="d-flex justify-content-center">
-                <a
-                  href="#"
-                  class="btn btn-warning discover-btn"
-                  data-project-id="5"
-                  >Découvrir</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-6 col-lg-4 project-item"
-          data-tech="html css js bootstrap php sql"
-        >
-          <div class="card project-card h-100" data-project-id="6">
-            <div class="card-body">
-              <h5 class="card-title text-primary">Autocompletion</h5>
-              <span class="badge bg-danger">HTML</span>
-              <span class="badge bg-success">CSS</span>
-              <span class="badge bg-warning">JS</span>
-              <span class="badge bg-primary">PHP</span>
-              <span class="badge bg-dark">SQL</span>
-              <span class="badge bg-danger-subtle text-dark">Bootstrap</span>
-
-              <p class="card-text">
-                Site web avec un mécanisme qui permet de proposer à
-                l’utilisateur des résultats pour sa recherche, en fonction de ce
-                qu’il tape dans l’input. Les résultats s’adaptent à chaque fois
-                que l’utilisateur entre un caractère supplémentaire.
-              </p>
-              <div class="d-flex justify-content-center">
-                <a
-                  href="#"
-                  class="btn btn-warning discover-btn"
-                  data-project-id="6"
-                  >Découvrir</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-6 col-lg-4 project-item"
-          data-tech="html css js react "
-        >
-          <div class="card project-card h-100" data-project-id="7">
-            <div class="card-body">
-              <h5 class="card-title text-primary">MemoryReact</h5>
-              <span class="badge bg-danger">HTML</span>
-              <span class="badge bg-success">CSS</span>
-              <span class="badge bg-warning">JS</span>
-              <span class="badge bg-primary-subtle text-dark">ReactJS</span>
-              <p class="card-text">
-                Jeu de memoire fait en ReactJS avec un menu en début de partie
-                pour choisir le nombre de carte
-              </p>
-              <div class="d-flex justify-content-center">
-                <a
-                  href="#"
-                  class="btn btn-warning discover-btn"
-                  data-project-id="7"
-                  >Découvrir</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 project-item" data-tech="wordpress ">
-          <div class="card project-card h-100" data-project-id="8">
-            <div class="card-body">
-              <h5 class="card-title text-primary">WordPress</h5>
-
-              <span class="badge bg-info text-dark">WordPress</span>
-              <p class="card-text">
-                Il s’agit d’un blog WordPress qui parle des dernières actualités
-                sportives.Il regroupe essentiellement les dernières infos dans
-                le football et dans le tennis. Les articles sont datés et triés.
-              </p>
-              <div class="d-flex justify-content-center">
-                <a
-                  href="#"
-                  class="btn btn-warning discover-btn"
-                  data-project-id="8"
-                  >Découvrir</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-6 col-lg-4 project-item"
-          data-tech="html css js react bootstrap "
-        >
-          <div class="card project-card h-100" data-project-id="9">
-            <div class="card-body">
-              <h5 class="card-title text-primary">FootMarket</h5>
-              <span class="badge bg-danger">HTML</span>
-              <span class="badge bg-success">CSS</span>
-              <span class="badge bg-warning">JS</span>
-              <span class="badge bg-primary-subtle text-dark">ReactJS</span>
-              <span class="badge bg-danger-subtle text-dark">Bootstrap</span>
-              <p class="card-text">
-                Il s’agit d’une boutique en ligne qui vend des crampons pour
-                femmes.Boutique codée avec ReactJS/Bootstrap pour le front-end
-                et WordPress/WOOCommerce pour le back-end.
-              </p>
-              <div class="d-flex justify-content-center">
-                <a
-                  href="#"
-                  class="btn btn-warning discover-btn"
-                  data-project-id="9"
-                  >Découvrir</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-6 col-lg-4 project-item"
-          data-tech="html css js sql react vite wordpress node tailwind "
-        >
-          <div class="card project-card h-100" data-project-id="10">
-            <div class="card-body">
-              <h5 class="card-title text-primary">MarsAI</h5>
-              <span class="badge bg-danger">HTML</span>
-              <span class="badge bg-success">CSS</span>
-              <span class="badge bg-warning">JS</span>
-              <span class="badge bg-info text-dark">WordPress</span>
-              <span class="badge bg-primary-subtle text-dark">ReactJS</span>
-              <span class="badge bg-info-subtle text-dark">Vite</span>
-              <span class="badge bg-success-subtle text-dark">Bucket S3</span>
-              <span class="badge bg-dark">SQL</span>
-              <span class="badge bg-dark-subtle text-dark">NodeJS</span>
-              <span class="badge bg-danger-subtle text-dark">Tailwind</span>
-              <p class="card-text">
-                Le festival marsAI est un concours international de
-                courts-métrages de 1 minute dont la particularité est d'être
-                intégralement générés par Intelligence Artificielle
-              </p>
-              <div class="d-flex justify-content-center">
-                <a
-                  href="#"
-                  class="btn btn-warning discover-btn"
-                  data-project-id="10"
-                  >Découvrir</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-6 col-lg-4 project-item"
-          data-tech="html css js typescript "
-        >
-          <div class="card project-card h-100" data-project-id="11">
-            <div class="card-body">
-              <h5 class="card-title text-primary">Cinetech</h5>
-              <span class="badge bg-danger">HTML</span>
-              <span class="badge bg-success">CSS</span>
-              <span class="badge bg-warning">JS</span>
-              <span class="badge bg-secondary-subtle text-dark"
-                >Typescript</span
-              >
-              <p class="card-text">
-                Le but de ce projet est de réaliser une bibliothèque de films et
-                de séries, grâce à une API publique disponible en ligne.
-              </p>
-              <div class="d-flex justify-content-center">
-                <a
-                  href="#"
-                  class="btn btn-warning discover-btn"
-                  data-project-id="11"
-                  >Découvrir</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-6 col-lg-4 project-item"
-          data-tech="symfony php docker bootstrap "
-        >
-          <div class="card project-card h-100" data-project-id="12">
-            <div class="card-body">
-              <h5 class="card-title text-primary">Intra scolaire</h5>
-              <span class="badge bg-info-subtle text-dark">Symfony</span>
-              <span class="badge bg-primary">PHP</span>
-              <span class="badge bg-danger">Docker</span>
-              <span class="badge bg-danger-subtle text-dark">Bootstrap</span>
-              <p class="card-text">
-                Le but de ce projet est de réaliser un intranet scolaire pour
-                les étudiants et les professeurs en utilisant Symfony et Docker.
-                L'application permet de gérer les cours, les notes, les absences
-                et les communications entre étudiants et enseignants.
-              </p>
-              <div class="d-flex justify-content-center">
-                <a
-                  href="#"
-                  class="btn btn-warning discover-btn"
-                  data-project-id="12"
-                  >Découvrir</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 5: CONTACT - Ajout de la classe d'animation -->
-    <section id="contact" class="bg-dark text-white">
-      <div class="container text-center">
-        <h2 class="section-title text-white">📧 Me contacter</h2>
-        <p class="lead">Intéressé(e) par mon profil ? Envoyons un email !</p>
-        <a
-          href="mailto:votre.email@exemple.com"
-          class="btn btn-primary btn-lg mt-3"
-          >Envoyer un E-mail</a
-        >
-        <div class="mt-4">
-          <a
-            href="https://linkedin.com/in/mohamed-amine-namasse"
-            target="_blank"
-            class="text-white mx-2"
-            >LinkedIn</a
+    <!-- =====================================================================
+         2. BARRE DE NAVIGATION SUPÉRIEURE FAÇON UNIX / WINDOW MANAGER
+    ====================================================================== -->
+    <header class="fixed top-0 left-0 right-0 z-[46] px-3 sm:px-6 pt-3">
+      <nav
+        class="max-w-7xl mx-auto retro-window rounded-none px-4 py-2.5 flex flex-wrap items-center justify-between gap-3"
+      >
+        <!-- Logo & Prompt -->
+        <a href="#top" class="flex items-center gap-2.5 group">
+          <span
+            class="w-7 h-7 bg-phosphor text-black font-pixel text-xs flex items-center justify-center font-bold"
           >
-          |
-          <a
-            href="https://github.com/mohamed-amine-namasse"
-            target="_blank"
-            class="text-white mx-2"
-            >GitHub</a
+            &gt;_
+          </span>
+          <span
+            class="font-pixel text-xs sm:text-sm text-phosphor glow-text tracking-tight"
           >
+            MON_PORTFOLIO
+          </span>
+        </a>
+
+        <!-- Liens de navigation -->
+        <div
+          class="hidden md:flex items-center gap-5 text-xs font-bold uppercase tracking-wider"
+        >
+          <a
+            href="#about"
+            class="hover:text-phosphor transition-colors flex items-center gap-1.5"
+          >
+            <span class="text-phosphor">[01]</span> À_Propos
+          </a>
+          <a
+            href="#terminal-section"
+            class="hover:text-phosphor transition-colors flex items-center gap-1.5"
+          >
+            <span class="text-phosphor">[02]</span> Terminal
+          </a>
+          <a
+            href="#projects"
+            class="hover:text-phosphor transition-colors flex items-center gap-1.5"
+          >
+            <span class="text-phosphor">[03]</span> Projets
+          </a>
+          <a
+            href="#skills"
+            class="hover:text-phosphor transition-colors flex items-center gap-1.5"
+          >
+            <span class="text-phosphor">[04]</span> Compétences
+          </a>
+          <a
+            href="#contact"
+            class="hover:text-phosphor transition-colors flex items-center gap-1.5"
+          >
+            <span class="text-phosphor">[05]</span> Contact
+          </a>
         </div>
-      </div>
-    </section>
-    <!-- Modal projet-->
-    <div
-      class="modal fade"
-      id="projectModal"
-      tabindex="-1"
-      aria-labelledby="projectModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="projectModalLabel">
-              Détails du Projet
-            </h5>
+
+        <!-- Sélecteur de Phosphore CRT + Horloge Système -->
+        <div class="flex items-center gap-2.5">
+          <div
+            class="flex items-center gap-1.5 bg-black/60 px-2.5 py-1 border border-white/15"
+            title="Changer la couleur du phosphore CRT"
+          >
+            <span
+              class="text-[10px] text-slate-400 hidden sm:inline uppercase mr-1"
+              >CRT:</span
+            >
             <button
               type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
+              data-crt="green"
+              aria-label="Phosphore Vert"
+              class="crt-theme-btn w-3.5 h-3.5 bg-green-500 border border-white scale-110 transition-transform"
+            ></button>
+            <button
+              type="button"
+              data-crt="amber"
+              aria-label="Phosphore Ambre"
+              class="crt-theme-btn w-3.5 h-3.5 bg-amber-500 border border-transparent opacity-70 hover:opacity-100 transition-transform"
+            ></button>
+            <button
+              type="button"
+              data-crt="cyber"
+              aria-label="Phosphore Cyan"
+              class="crt-theme-btn w-3.5 h-3.5 bg-cyan-400 border border-transparent opacity-70 hover:opacity-100 transition-transform"
             ></button>
           </div>
-          <div class="modal-body">
-            <h6 id="modal-project-title" class="text-primary"></h6>
-            <p id="modal-project-long-desc"></p>
-            <p>
-              <strong>Technologies :</strong>
-              <span id="modal-project-tech"></span>
+
+          <div
+            class="hidden sm:flex items-center gap-2 text-xs text-slate-300 bg-black/60 px-2.5 py-1 border border-white/15"
+          >
+            <i class="fa-solid fa-microchip text-phosphor"></i>
+            <span id="sys-clock">12:00:00</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- =====================================================================
+         3. CONTENU PRINCIPAL ONE-PAGE
+    ====================================================================== -->
+    <main
+      id="top"
+      class="relative z-10 pt-24 pb-20 px-4 sm:px-6 max-w-7xl mx-auto space-y-24 sm:space-y-28"
+    >
+      <!-- =================================================================
+             HERO SECTION : IDENTITÉ MOHAMED-AMINE NAMASSE + CONTRÔLE 3D
+        ================================================================== -->
+      <section class="min-h-[80vh] flex flex-col justify-center py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <!-- Colonne Gauche : Présentation -->
+          <div class="lg:col-span-7 space-y-6 hero-reveal">
+            <h1
+              class="font-pixel text-2xl sm:text-4xl md:text-[2.45rem] leading-[1.35] text-white"
+            >
+              SALUT, JE SUIS
+              <span class="text-phosphor glow-text">MOHAMED-AMINE</span>
+              NAMASSE.
+            </h1>
+
+            <p
+              class="font-vt text-2xl sm:text-3xl text-slate-300 leading-snug max-w-2xl"
+            >
+              &gt; Développeur
+              <strong class="text-white">Full Stack</strong> passionné par le
+              développement
+              <strong class="text-white">web et web mobile</strong>. Je
+              transforme des idées complexes en applications élégantes, propres
+              et efficaces.<span class="cursor-blink text-phosphor">█</span>
+            </p>
+
+            <!-- Boutons d'action -->
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="#projects"
+                class="retro-btn px-5 py-3 bg-phosphor text-black font-pixel text-xs uppercase tracking-wider flex items-center gap-2.5"
+              >
+                <i class="fa-solid fa-folder-open"></i>
+                <span>Voir_Mes_Projets</span>
+              </a>
+              <a
+                href="#terminal-section"
+                class="retro-btn px-5 py-3 bg-black/80 text-phosphor font-pixel text-xs uppercase tracking-wider flex items-center gap-2.5 hover:bg-white/10"
+              >
+                <i class="fa-solid fa-terminal"></i>
+                <span>Ouvrir_Shell</span>
+              </a>
+              <a
+                href="https://github.com/mohamed-amine-namasse"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                class="retro-btn px-3.5 py-3 bg-black/80 text-phosphor text-sm hover:bg-white/10"
+              >
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a
+                href="https://linkedin.com/in/mohamed-amine-namasse"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                class="retro-btn px-3.5 py-3 bg-black/80 text-phosphor text-sm hover:bg-white/10"
+              >
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+
+            <!-- Métriques Synchronisées avec script.js -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-4 max-w-xl">
+              <div class="retro-window p-3.5">
+                <span
+                  id="projects-count-hero"
+                  class="block font-pixel text-lg sm:text-xl text-phosphor"
+                  >12</span
+                >
+                <span class="block text-[11px] text-slate-400 uppercase mt-1"
+                  >Projets_Livrés</span
+                >
+              </div>
+              <div class="retro-window p-3.5">
+                <span class="block font-pixel text-lg sm:text-xl text-phosphor"
+                  >08</span
+                >
+                <span class="block text-[11px] text-slate-400 uppercase mt-1"
+                  >Pôles_Skills</span
+                >
+              </div>
+              <div class="retro-window p-3.5">
+                <span class="block font-pixel text-lg sm:text-xl text-phosphor"
+                  >100%</span
+                >
+                <span class="block text-[11px] text-slate-400 uppercase mt-1"
+                  >Full-Stack</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Colonne Droite : Moniteur Profil & Contrôle 3D -->
+          <div class="lg:col-span-5 hero-reveal">
+            <div class="retro-window">
+              <div
+                class="retro-titlebar px-3.5 py-2 flex items-center justify-between text-xs font-bold"
+              >
+                <span class="flex items-center gap-2 text-phosphor">
+                  <i class="fa-solid fa-cube"></i> NAMASSE_CORE_3D.EXE
+                </span>
+                <div class="flex items-center gap-1.5">
+                  <span
+                    class="w-2.5 h-2.5 border border-phosphor inline-block"
+                  ></span>
+                  <span class="w-2.5 h-2.5 bg-phosphor inline-block"></span>
+                </div>
+              </div>
+
+              <div class="p-5 space-y-4">
+                <div
+                  class="h-44 sm:h-52 border border-dashed border-white/20 bg-black/40 flex flex-col items-center justify-center text-center p-4 relative overflow-hidden"
+                >
+                  <p class="font-vt text-xl text-phosphor tracking-widest">
+                    [ FLUX MATRIX 3D ACTIF EN ARRIÈRE-PLAN ]
+                  </p>
+                  <p class="text-xs text-slate-400 mt-1 max-w-xs">
+                    Déplace ta souris pour orienter la caméra dans le flux de
+                    code ou accélère la matrice ci-dessous.
+                  </p>
+                  <div class="mt-4 flex flex-wrap justify-center gap-2">
+                    <button
+                      id="boost-3d-btn"
+                      type="button"
+                      class="retro-btn px-3 py-1.5 bg-black text-phosphor text-[11px] font-bold uppercase"
+                    >
+                      <i class="fa-solid fa-bolt mr-1"></i> Surge_Matrix
+                    </button>
+                    <button
+                      id="wireframe-toggle-btn"
+                      type="button"
+                      class="retro-btn px-3 py-1.5 bg-black text-slate-200 text-[11px] font-bold uppercase"
+                    >
+                      <i class="fa-solid fa-border-all mr-1"></i> Grille_Sol
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+             SECTION 1 : À PROPOS DE MOI
+        ================================================================== -->
+      <section id="about" class="scroll-reveal">
+        <div class="mb-6">
+          <span class="font-pixel text-xs text-phosphor"
+            >&gt; 01 // WHOAMI.TXT</span
+          >
+          <h2 class="font-pixel text-xl sm:text-2xl text-white mt-2">
+            À PROPOS DE MOI
+          </h2>
+        </div>
+
+        <div class="retro-window p-6 sm:p-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-8 space-y-4">
+              <p
+                class="font-vt text-2xl sm:text-3xl text-slate-200 leading-relaxed"
+              >
+                &gt; Bonjour ! Je suis un
+                <span class="text-phosphor"
+                  >développeur full-stack / front-end / back-end</span
+                >
+                qui aime transformer des idées complexes en applications
+                élégantes et fonctionnelles.
+              </p>
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Ma mission ?
+                <strong class="text-white"
+                  >Résoudre vos défis techniques avec un code propre et
+                  efficace.</strong
+                >
+                Du prototypage d'interfaces réactives en React/TypeScript
+                jusqu'à la conception d'architectures robustes sous Symfony,
+                PHP, NodeJS, SQL et Docker, j'interviens sur l'ensemble du cycle
+                de vie d'une application web et mobile.
+              </p>
+            </div>
+
+            <div
+              class="lg:col-span-4 bg-black/70 border border-white/15 p-4 space-y-2.5 text-xs font-mono"
+            >
+              <div
+                class="text-phosphor font-bold border-b border-white/15 pb-1.5"
+              >
+                &gt; SYSTEM_SPECS
+              </div>
+              <p>
+                <span class="text-slate-400">Nom :</span> Mohamed-Amine NAMASSE
+              </p>
+              <p>
+                <span class="text-slate-400">Spécialité :</span> Web &amp; Web
+                Mobile
+              </p>
+              <p>
+                <span class="text-slate-400">Architecture :</span> MVC / POO /
+                REST
+              </p>
+              <p>
+                <span class="text-slate-400">Statut :</span>
+                <span class="text-phosphor">Prêt pour nouveaux défis</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+             SECTION 2 : TERMINAL BASH INTERACTIF
+        ================================================================== -->
+      <section id="terminal-section" class="scroll-reveal">
+        <div
+          class="mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-2"
+        >
+          <div>
+            <span class="font-pixel text-xs text-phosphor"
+              >&gt; 02 // INTERACTIVE_SHELL</span
+            >
+            <h2 class="font-pixel text-xl sm:text-2xl text-white mt-2">
+              CONSOLE DE COMMANDE
+            </h2>
+          </div>
+          <p class="text-xs text-slate-400">
+            Clique sur une commande rapide ou tape
+            <code class="text-phosphor">help</code>
+          </p>
+        </div>
+
+        <div class="retro-window">
+          <div
+            class="retro-titlebar px-4 py-2.5 flex items-center justify-between text-xs font-bold"
+          >
+            <span class="text-phosphor flex items-center gap-2">
+              <i class="fa-solid fa-terminal"></i> guest@namasse-dev:
+              ~/portfolio
+            </span>
+            <div class="flex flex-wrap gap-1.5">
+              <button
+                type="button"
+                data-cmd="help"
+                class="quick-cmd px-2 py-0.5 bg-black/70 hover:bg-phosphor hover:text-black border border-phosphor text-[11px] transition"
+              >
+                help
+              </button>
+              <button
+                type="button"
+                data-cmd="about"
+                class="quick-cmd px-2 py-0.5 bg-black/70 hover:bg-phosphor hover:text-black border border-phosphor text-[11px] transition"
+              >
+                about
+              </button>
+              <button
+                type="button"
+                data-cmd="projects"
+                class="quick-cmd px-2 py-0.5 bg-black/70 hover:bg-phosphor hover:text-black border border-phosphor text-[11px] transition"
+              >
+                projects
+              </button>
+              <button
+                type="button"
+                data-cmd="skills"
+                class="quick-cmd px-2 py-0.5 bg-black/70 hover:bg-phosphor hover:text-black border border-phosphor text-[11px] transition"
+              >
+                skills
+              </button>
+              <button
+                type="button"
+                data-cmd="contact"
+                class="quick-cmd px-2 py-0.5 bg-black/70 hover:bg-phosphor hover:text-black border border-phosphor text-[11px] transition"
+              >
+                contact
+              </button>
+              <button
+                type="button"
+                data-cmd="matrix"
+                class="quick-cmd px-2 py-0.5 bg-black/70 hover:bg-phosphor hover:text-black border border-phosphor text-[11px] transition"
+              >
+                matrix
+              </button>
+              <button
+                type="button"
+                data-cmd="clear"
+                class="quick-cmd px-2 py-0.5 bg-black/70 hover:bg-phosphor hover:text-black border border-phosphor text-[11px] transition"
+              >
+                clear
+              </button>
+            </div>
+          </div>
+
+          <div
+            id="terminal-output"
+            class="p-4 sm:p-6 h-72 overflow-y-auto space-y-2 text-xs sm:text-sm font-mono bg-black/70"
+          >
+            <p class="text-phosphor">
+              Bienvenue sur le terminal de Mohamed-Amine NAMASSE [La Plateforme_
+              OS]
+            </p>
+            <p class="text-slate-400">
+              Tape <span class="text-white font-bold">'help'</span> pour
+              explorer mon parcours (about, projects, skills, contact, theme
+              amber, matrix, clear).
             </p>
           </div>
-          <div class="modal-footer">
+
+          <form
+            id="terminal-form"
+            class="border-t-2 border-phosphor bg-black/90 px-4 py-3 flex items-center gap-2.5"
+          >
+            <label
+              for="terminal-input"
+              class="text-phosphor font-bold text-xs sm:text-sm shrink-0"
+            >
+              visitor@namasse:~$
+            </label>
+            <input
+              id="terminal-input"
+              type="text"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="Tape une commande (ex: about, projects, skills, contact)..."
+              class="w-full bg-transparent text-white text-xs sm:text-sm focus:outline-none placeholder-slate-600"
+            />
+            <button
+              type="submit"
+              class="px-3 py-1 bg-phosphor text-black font-bold text-xs uppercase shrink-0"
+            >
+              EXEC
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- =================================================================
+             SECTION 3 : MES RÉALISATIONS (ALIMENTÉE PAR script.js)
+        ================================================================== -->
+      <section id="projects" class="scroll-reveal">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8"
+        >
+          <div>
+            <span class="font-pixel text-xs text-phosphor"
+              >&gt; 03 // MES_REALISATIONS [<span id="projects-count-title"
+                >12</span
+              >]</span
+            >
+            <h2 class="font-pixel text-xl sm:text-2xl text-white mt-2">
+              DERNIERES REALISATIONS
+            </h2>
+          </div>
+
+          <!-- Filtres dynamiques basés sur project.tech -->
+          <div class="flex flex-wrap gap-2" id="project-filters">
+            <button
+              type="button"
+              data-pfilter="all"
+              class="pfilter-btn active retro-btn px-3.5 py-2 bg-phosphor text-black text-xs font-bold uppercase"
+            >
+              *.* (Tous)
+            </button>
+            <button
+              type="button"
+              data-pfilter="react"
+              class="pfilter-btn retro-btn px-3.5 py-2 bg-black/80 text-slate-200 text-xs font-bold uppercase"
+            >
+              React / TS
+            </button>
+            <button
+              type="button"
+              data-pfilter="php"
+              class="pfilter-btn retro-btn px-3.5 py-2 bg-black/80 text-slate-200 text-xs font-bold uppercase"
+            >
+              PHP / Symfony
+            </button>
+            <button
+              type="button"
+              data-pfilter="js"
+              class="pfilter-btn retro-btn px-3.5 py-2 bg-black/80 text-slate-200 text-xs font-bold uppercase"
+            >
+              JavaScript
+            </button>
+            <button
+              type="button"
+              data-pfilter="wordpress"
+              class="pfilter-btn retro-btn px-3.5 py-2 bg-black/80 text-slate-200 text-xs font-bold uppercase"
+            >
+              WordPress
+            </button>
+          </div>
+        </div>
+
+        <!-- Grille de cartes rétro injectée par script.js -->
+        <div
+          id="projects-grid"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        ></div>
+      </section>
+
+      <!-- =================================================================
+             SECTION 4 : COMPÉTENCES TECHNIQUES (8 PÔLES)
+        ================================================================== -->
+      <section id="skills" class="scroll-reveal">
+        <div class="mb-8">
+          <span class="font-pixel text-xs text-phosphor"
+            >&gt; 04 // SYSTEM_CAPABILITIES</span
+          >
+          <h2 class="font-pixel text-xl sm:text-2xl text-white mt-2">
+            COMPÉTENCES TECHNIQUES
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- 1. Frontend -->
+          <div class="retro-window p-5 space-y-4">
+            <div
+              class="flex items-center justify-between border-b border-white/15 pb-2.5"
+            >
+              <h3 class="font-pixel text-xs text-phosphor">FRONTEND</h3>
+              <i class="fa-solid fa-code text-phosphor"></i>
+            </div>
+            <div class="flex flex-wrap gap-1.5 text-xs">
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >HTML5</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >CSS3</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >JavaScript</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >TypeScript</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >ReactJS</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >Redux</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >Sass</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >Tailwind</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >Bootstrap</span
+              >
+            </div>
+          </div>
+
+          <!-- 2. Backend -->
+          <div class="retro-window p-5 space-y-4">
+            <div
+              class="flex items-center justify-between border-b border-white/15 pb-2.5"
+            >
+              <h3 class="font-pixel text-xs text-phosphor">BACKEND</h3>
+              <i class="fa-solid fa-server text-phosphor"></i>
+            </div>
+            <div class="flex flex-wrap gap-1.5 text-xs">
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >PHP</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >Symfony</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >NodeJS</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >SQL</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >MongoDB</span
+              >
+            </div>
+          </div>
+
+          <!-- 3. Langages de programmation -->
+          <div class="retro-window p-5 space-y-4">
+            <div
+              class="flex items-center justify-between border-b border-white/15 pb-2.5"
+            >
+              <h3 class="font-pixel text-xs text-phosphor">LANGAGES</h3>
+              <i class="fa-solid fa-terminal text-phosphor"></i>
+            </div>
+            <div class="flex flex-wrap gap-1.5 text-xs">
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >C</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >C++</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >Python</span
+              >
+            </div>
+          </div>
+
+          <!-- 4. Outils & DevOps -->
+          <div class="retro-window p-5 space-y-4">
+            <div
+              class="flex items-center justify-between border-b border-white/15 pb-2.5"
+            >
+              <h3 class="font-pixel text-xs text-phosphor">DEVOPS</h3>
+              <i class="fa-brands fa-docker text-phosphor"></i>
+            </div>
+            <div class="flex flex-wrap gap-1.5 text-xs">
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >Git</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >GitHub</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >Docker</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >Bucket S3</span
+              >
+            </div>
+          </div>
+
+          <!-- 5. Tests -->
+          <div class="retro-window p-5 space-y-4">
+            <div
+              class="flex items-center justify-between border-b border-white/15 pb-2.5"
+            >
+              <h3 class="font-pixel text-xs text-phosphor">TESTS</h3>
+              <i class="fa-solid fa-vial-circle-check text-phosphor"></i>
+            </div>
+            <div class="flex flex-wrap gap-1.5 text-xs">
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >PHPUnit</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >Jest</span
+              >
+            </div>
+          </div>
+
+          <!-- 6. Design Web & CMS -->
+          <div class="retro-window p-5 space-y-4">
+            <div
+              class="flex items-center justify-between border-b border-white/15 pb-2.5"
+            >
+              <h3 class="font-pixel text-xs text-phosphor">DESIGN &amp; CMS</h3>
+              <i class="fa-brands fa-figma text-phosphor"></i>
+            </div>
+            <div class="flex flex-wrap gap-1.5 text-xs">
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >Figma</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >WordPress</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >WooCommerce</span
+              >
+            </div>
+          </div>
+
+          <!-- 7. Design Patterns -->
+          <div class="retro-window p-5 space-y-4">
+            <div
+              class="flex items-center justify-between border-b border-white/15 pb-2.5"
+            >
+              <h3 class="font-pixel text-xs text-phosphor">PATTERNS</h3>
+              <i class="fa-solid fa-diagram-project text-phosphor"></i>
+            </div>
+            <div class="flex flex-wrap gap-1.5 text-xs">
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >Architecture MVC</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >PHP POO</span
+              >
+            </div>
+          </div>
+
+          <!-- 8. Responsive -->
+          <div class="retro-window p-5 space-y-4">
+            <div
+              class="flex items-center justify-between border-b border-white/15 pb-2.5"
+            >
+              <h3 class="font-pixel text-xs text-phosphor">RESPONSIVE</h3>
+              <i class="fa-solid fa-mobile-screen-button text-phosphor"></i>
+            </div>
+            <div class="flex flex-wrap gap-1.5 text-xs">
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >Desktop / Mobile</span
+              >
+              <span
+                class="px-2 py-1 bg-black/80 border border-phosphor/60 text-slate-200"
+                >Mobile First</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+             SECTION 5 : ME CONTACTER
+        ================================================================== -->
+      <section id="contact" class="scroll-reveal">
+        <div class="retro-window p-6 sm:p-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-4">
+              <span class="font-pixel text-xs text-phosphor"
+                >&gt; 05 // OPEN_CONNECTION</span
+              >
+              <h2
+                class="font-pixel text-xl sm:text-2xl text-white leading-relaxed"
+              >
+                ME CONTACTER
+              </h2>
+              <p class="font-vt text-2xl text-slate-300">
+                Intéressé(e) par mon profil pour un stage, une alternance, un
+                CDI ou un projet web ? Établissons la connexion !
+              </p>
+              <div class="space-y-2 text-xs text-slate-300 pt-2">
+                <p>
+                  <i class="fa-brands fa-github text-phosphor mr-2"></i>
+                  github.com/mohamed-amine-namasse
+                </p>
+                <p>
+                  <i class="fa-brands fa-linkedin text-phosphor mr-2"></i>
+                  linkedin.com/in/mohamed-amine-namasse
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-2">
+                <a
+                  href="https://github.com/mohamed-amine-namasse"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  class="retro-btn px-3.5 py-2.5 bg-black flex items-center gap-2 text-xs text-phosphor font-bold"
+                >
+                  <i class="fa-brands fa-github text-base"></i> GitHub
+                </a>
+                <a
+                  href="https://linkedin.com/in/mohamed-amine-namasse"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  class="retro-btn px-3.5 py-2.5 bg-black flex items-center gap-2 text-xs text-phosphor font-bold"
+                >
+                  <i class="fa-brands fa-linkedin-in text-base"></i> LinkedIn
+                </a>
+              </div>
+            </div>
+
+            <div
+              class="lg:col-span-7 flex flex-col items-start lg:items-center justify-center bg-black/60 border-2 border-white/15 p-6 sm:p-8 space-y-4 text-left lg:text-center"
+            >
+              <span class="font-pixel text-xs text-phosphor"
+                >&gt; DIRECT_MAIL_PROTOCOL</span
+              >
+              <p
+                class="text-xs sm:text-sm text-slate-300 max-w-md leading-relaxed"
+              >
+                Clique sur le bouton ci-dessous pour ouvrir ton client mail et
+                m'écrire directement à
+                <span class="text-phosphor font-mono"
+                  >namasse.medamine@gmail.com</span
+                >.
+              </p>
+              <a
+                href="mailto:namasse.medamine@gmail.com?subject=Contact%20depuis%20le%20portfolio"
+                class="retro-btn inline-flex items-center gap-2.5 px-6 py-3.5 bg-phosphor text-black font-pixel text-xs uppercase"
+              >
+                <i class="fa-solid fa-envelope text-sm"></i> &gt;
+                ENVOYER_UN_EMAIL
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================================
+         4. FOOTER RÉTROMODERNE
+    ====================================================================== -->
+    <footer
+      class="relative z-10 border-t-2 border-phosphor bg-black/90 py-6 px-4 text-center text-xs text-slate-400"
+    >
+      <p class="font-vt text-xl text-phosphor">
+        MOHAMED-AMINE NAMASSE — DÉVELOPPEUR FULL-STACK WEB &amp; MOBILE
+      </p>
+      <p class="mt-1 text-[11px]">
+        &copy; <span id="year"></span> MOHAMED-AMINE NAMASSE
+      </p>
+    </footer>
+
+    <!-- =====================================================================
+         5. MODALE DÉTAILS DU PROJET (LIENS DÉMO + CODE + TECHNOLOGIES)
+    ====================================================================== -->
+    <div
+      id="projectModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/85 backdrop-blur-sm"
+    >
+      <div class="retro-window max-w-xl w-full overflow-hidden">
+        <div
+          class="retro-titlebar px-4 py-2.5 flex items-center justify-between text-xs font-bold"
+        >
+          <span id="modal-filename" class="text-phosphor">PROJECT_INFO.MD</span>
+          <button
+            id="close-modal-btn"
+            type="button"
+            class="px-2 py-0.5 bg-black text-phosphor border border-phosphor hover:bg-phosphor hover:text-black"
+          >
+            [X]
+          </button>
+        </div>
+        <div class="p-6 space-y-4">
+          <span
+            id="modal-badge"
+            class="inline-block px-2.5 py-1 bg-phosphor text-black font-bold text-[10px] uppercase"
+          ></span>
+          <h3
+            id="modal-project-title"
+            class="font-pixel text-base sm:text-lg text-white leading-snug"
+          ></h3>
+          <p
+            id="modal-project-long-desc"
+            class="text-xs sm:text-sm text-slate-300 leading-relaxed"
+          ></p>
+
+          <div class="space-y-2">
+            <span class="block text-[11px] text-phosphor uppercase font-bold"
+              >&gt; Stack &amp; Technologies :</span
+            >
+            <div class="flex flex-wrap gap-1.5" id="modal-project-tech"></div>
+          </div>
+
+          <div
+            class="flex flex-wrap items-center justify-end gap-3 pt-3 border-t border-white/15"
+          >
             <a
               id="modal-project-link"
               href="#"
               target="_blank"
-              class="btn btn-danger"
-              >Voir la Démo</a
+              rel="noopener noreferrer"
+              class="retro-btn px-4 py-2 bg-phosphor text-black text-xs font-bold uppercase flex items-center gap-2"
             >
+              <i class="fa-solid fa-up-right-from-square"></i> Voir la Démo
+            </a>
             <a
               id="modal-code-link"
               href="#"
               target="_blank"
-              class="btn btn-primary"
-              >Voir le code</a
+              rel="noopener noreferrer"
+              class="retro-btn px-4 py-2 bg-black text-phosphor text-xs font-bold uppercase flex items-center gap-2 hover:bg-white/10"
             >
+              <i class="fa-brands fa-github"></i> Voir le Code
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- =====================================================================
+         6. TON FICHIER SCRIPT.JS ADAPTÉ
+    ====================================================================== -->
+    <script src="script.js"></script>
   </body>
 </html>

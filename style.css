@@ -1,343 +1,154 @@
-body {
-  background-color: #f8f9fa; /* Couleur de fond légère */
-}
-
-/* Style spécifique pour le titre dans la barre de navigation */
-#title {
-  font-family: "Dancing Script", cursive;
-  font-size: 1.8rem;
-  color: #dc3545 !important; /* Rouge Bootstrap */
-}
-
-/* Titres de section */
-.section-title {
-  font-weight: 700;
-  font-size: 2.5rem;
-  margin-bottom: 2.5rem;
-  color: #333;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-/* ------------------------------------- */
-/* --- 2. SECTION HERO --- */
-/* ------------------------------------- */
-
-.hero-section {
-  background: linear-gradient(45deg, red, blue);
-  color: white;
-  padding: 80px 0;
-  text-align: center;
-}
-
-.hero-section h1 {
-  font-size: 4rem;
-}
-
-.hero-section .lead {
-  font-size: 1.5rem;
-  max-width: 600px;
-  margin: 0 auto 2rem;
-}
-
-/* ------------------------------------- */
-/* --- 3. SECTIONS A PROPOS & CONTACT --- */
-/* ------------------------------------- */
-
-/* Texte de la section À Propos */
-.about-text {
-  font-size: 1.1rem;
-  color: #555;
-}
-
-/* Section Contact (déjà bien stylisée par Bootstrap, mais ajoutons un peu de padding) */
-#contact {
-  /* bg-dark et text-white sont déjà dans le HTML */
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-/* ------------------------------------- */
-/* --- 4. SECTION COMPÉTENCES --- */
-/* ------------------------------------- */
-
-#skills .col-lg-3 {
-  padding: 20px;
-  border-radius: 10px;
-  border: gray 1px dashed;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  margin-top: 15px; /* Espace entre les lignes */
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-#skills .col-lg-3:hover {
-  transform: translateY(-5px);
-  border: gray 1px dashed;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-#skills h4 {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-#skills p {
-  font-size: 0.95rem;
-  color: #6c757d;
-}
-
-/* ------------------------------------- */
-/* --- 5. SECTION PROJETS --- */
-/* ------------------------------------- */
-
-.project-card {
-  border: none;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.project-card .card-body {
-  padding: 20px;
-}
-
-.project-card .card-title {
-  font-weight: 700;
-  color: #007bff; /* Bleu primaire */
-}
-
-/* Style des boutons de filtre de projets */
-.filter-btn {
-  border-radius: 50px;
-  margin: 0 5px;
-  transition: all 0.3s ease;
-}
-
-.filter-btn.active,
-.filter-btn:hover {
-  background-color: #dc3545;
-  border-color: #dc3545;
-  color: white;
-}
-
-/* ------------------------------------- */
-/* --- 6. ANIMATION (FADE-IN) --- */
-/* ------------------------------------- */
-
-/* État initial : invisible et décalé vers le haut */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.8s ease-out,
-    transform 0.8s ease-out;
-}
-
-/* État visible : opacité complète et position normale */
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.text-justify {
-  text-align: justify !important;
-}
-
-nav a.link-info:hover {
-  font-weight: bold;
-}
-.about-text {
-  /* Le texte est aligné au centre par défaut sur tous les écrans (y compris mobile) */
-  text-align: center;
-}
-
-/* Limite la description du projet à 4 lignes maximum */
-.project-card .card-text {
-  /* Propriétés pour l'affichage multi-lignes */
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 4; /* Limite le contenu à 4 lignes */
-  -webkit-box-orient: vertical;
-
-  /* Garantit que toutes les cartes ont la même hauteur pour le texte */
-  /* Assurez-vous d'avoir une hauteur fixe suffisante pour 4 lignes de texte */
-  min-height: 5rem;
-}
-/* --- . Media Query pour écrans de bureau (Desktop, 'lg' et au-dessus) --- */
-/* Le breakpoint 'lg' de Bootstrap est à 992px */
-@media (min-width: 992px) {
-  .about-text {
-    /* Applique la justification uniquement à partir de 992px de large */
-    text-align: justify;
+  :root {
+      --phosphor: #22c55e;
+      --phosphor-bright: #4ade80;
+      --phosphor-dim: rgba(34, 197, 94, 0.16);
+      --phosphor-glow: rgba(34, 197, 94, 0.45);
+      --secondary-neon: #06b6d4;
   }
-}
 
-/* Liens de navigation */
-.custom-link {
-  color: rgba(255, 255, 255, 0.8) !important;
-  font-weight: 500;
-  position: relative;
-  transition: 0.3s;
-}
-
-.custom-link:hover {
-  color: #0d6efd !important; /* Bleu Bootstrap */
-}
-
-/* Soulignement animé au survol */
-.custom-link::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #0d6efd;
-  transition: width 0.3s ease;
-}
-
-.custom-link:hover::after {
-  width: 100%;
-}
-
-.btn-contact-nav:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
-}
-
-:root {
-  --primary-color: #0d6efd;
-  --dark-bg: #0f172a;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-  color: #334155;
-}
-
-/* NAVBAR GLASSMORPHISM */
-.custom-navbar {
-  background: rgba(15, 23, 42, 0.85) !important;
-  backdrop-filter: blur(10px);
-  padding: 15px 0;
-  transition: 0.3s;
-}
-
-.logo-text {
-  font-weight: 800;
-  color: white !important;
-  font-size: 1.4rem;
-}
-
-/* SKILL CARDS */
-.skill-card {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  border: 1px solid #e2e8f0;
-  transition: 0.3s;
-  text-align: center;
-}
-
-.skill-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-}
-
-.skill-icon {
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  margin-bottom: 20px;
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 15px;
-}
-
-.skill-tags span {
-  background: #f1f5f9;
-  padding: 5px 12px;
-  border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-/* PROJECT CARDS */
-.project-card {
-  border: none;
-  border-radius: 15px;
-  overflow: hidden;
-  transition: 0.3s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.project-card:hover {
-  transform: scale(1.02);
-}
-
-.discover-btn {
-  border-radius: 50px;
-  font-weight: 600;
-  padding: 8px 25px;
-}
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-}
-/* FOOTER CONTACT */
-.footer-contact {
-  background: var(--dark-bg);
-}
-/* Effet au survol */
-.skill-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
-  border-color: #0d6efd;
-}
-
-/* 1. On empêche Swiper de couper ce qui dépasse en haut */
-.skillSwiper {
-  overflow: visible !important;
-  padding-top: 30px !important; /* Crée l'espace nécessaire pour la remontée */
-  padding-bottom: 50px !important;
-}
-
-/* 2. On s'assure que la section parente ne crée pas de scroll horizontal bizarre */
-#skills {
-  overflow: hidden;
-}
-
-.reading-bar {
-  position: fixed; /* 'fixed' au lieu de 'absolute' pour rester à l'écran */
-  top: 66px;
-  left: 0;
-  width: 0;
-  height: 6px;
-  background-color: #ff3366; /* Ajout d'une couleur pour la voir */
-  z-index: 9999; /* S'assure que la barre passe au-dessus du reste du contenu */
-
-  /* Animation scroll-driven */
-  animation: fill linear;
-  animation-timeline: scroll();
-}
-
-@keyframes fill {
-  to {
-    width: 100%;
+  [data-theme="amber"] {
+      --phosphor: #f59e0b;
+      --phosphor-bright: #fbbf24;
+      --phosphor-dim: rgba(245, 158, 11, 0.16);
+      --phosphor-glow: rgba(245, 158, 11, 0.45);
+      --secondary-neon: #ef4444;
   }
-}
+
+  [data-theme="cyber"] {
+      --phosphor: #00f0ff;
+      --phosphor-bright: #67e8f9;
+      --phosphor-dim: rgba(0, 240, 255, 0.16);
+      --phosphor-glow: rgba(0, 240, 255, 0.45);
+      --secondary-neon: #f43f5e;
+  }
+
+  * {
+      box-sizing: border-box;
+  }
+
+  body {
+      background-color: #050807;
+      color: #e2e8f0;
+      font-family: 'Fira Code', monospace;
+      overflow-x: hidden;
+  }
+
+  ::selection {
+      background-color: var(--phosphor);
+      color: #050807;
+  }
+
+  /* Effet Scanlines CRT non intrusif (derrière le contenu, au-dessus du fond 3D) */
+  .crt-scanlines {
+      position: fixed;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+              rgba(0, 0, 0, 0.28) 50%);
+      background-size: 100% 4px;
+  }
+
+  .crt-vignette {
+      position: fixed;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+      background: radial-gradient(circle at center, transparent 58%, rgba(0, 0, 0, 0.72) 100%);
+  }
+
+  /* Canvas 3D Arrière-plan */
+  #retro-webgl {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+  }
+
+  /* Couleurs dynamiques phosphore */
+  .text-phosphor {
+      color: var(--phosphor-bright);
+      transition: color 0.3s ease;
+  }
+
+  .bg-phosphor {
+      background-color: var(--phosphor);
+      transition: background-color 0.3s ease;
+  }
+
+  .border-phosphor {
+      border-color: var(--phosphor);
+      transition: border-color 0.3s ease;
+  }
+
+  .glow-text {
+      text-shadow: 0 0 12px var(--phosphor-glow);
+  }
+
+  /* Fenêtre Terminal Rétro OS */
+  .retro-window {
+      background: rgba(8, 14, 12, 0.86);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 2px solid var(--phosphor);
+      box-shadow: 6px 6px 0px var(--phosphor-dim), 0 0 28px rgba(0, 0, 0, 0.85);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.3s ease;
+  }
+
+  .retro-window:hover {
+      box-shadow: 8px 8px 0px var(--phosphor-glow), 0 0 34px rgba(0, 0, 0, 0.9);
+  }
+
+  .retro-titlebar {
+      background: var(--phosphor-dim);
+      border-bottom: 2px solid var(--phosphor);
+  }
+
+  .retro-btn {
+      border: 2px solid var(--phosphor);
+      box-shadow: 3px 3px 0px var(--phosphor);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.2s ease;
+  }
+
+  .retro-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px var(--phosphor);
+  }
+
+  .retro-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px var(--phosphor);
+  }
+
+  /* Curseur clignotant */
+  @keyframes blink {
+
+      0%,
+      49% {
+          opacity: 1;
+      }
+
+      50%,
+      100% {
+          opacity: 0;
+      }
+  }
+
+  .cursor-blink {
+      animation: blink 1s infinite;
+  }
+
+  /* Scrollbar rétro */
+  ::-webkit-scrollbar {
+      width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: #050807;
+      border-left: 1px solid #1e293b;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: var(--phosphor);
+  }
