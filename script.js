@@ -288,7 +288,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .map((project) => {
         const tags = parseTechList(project.tech);
         const filename = toRetroFilename(project.title, project.id);
-        const primaryBadge = tags.slice(0, 2).join(" // ");
 
         return `
           <article class="retro-window flex flex-col justify-between group">
@@ -298,9 +297,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span class="text-slate-400">#${project.id.padStart(2, "0")}</span>
               </div>
               <div class="p-5">
-                <span class="inline-block px-2 py-0.5 bg-phosphor text-black font-bold text-[10px] uppercase mb-3">
-                  ${primaryBadge}
-                </span>
+                
                 <h3 class="font-pixel text-sm sm:text-base text-white leading-snug group-hover:text-phosphor transition-colors">
                   ${project.title}
                 </h3>
